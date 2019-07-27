@@ -54,11 +54,11 @@ const Bio = () => {
         }}
       />
       <p>
-        Written by <strong>{author}</strong> who lives and works in San
-        Francisco building useful things.
+        Ciao! This is Ish(~) and here's my blog. A bunch of articles, posts and considerations about the Linux Internals.
         {` `}
+        <br></br>
         <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
+          You should really follow me ^^'
         </a>
       </p>
     </div>

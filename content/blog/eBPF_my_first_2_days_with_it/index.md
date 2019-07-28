@@ -3,16 +3,16 @@ title: 'eBPF: My first 2 days with it.'
 date: "2019-07-27T22:25:00.000Z"
 description: "In the last two months I kept seeing posts, tweets and articles about eBPF..."
 ---
-## How I ended up studying eBPF...
+## How I have ended up studying eBPF...
 !['ebpf_logo'](./ebpf_logo.png)
 
-In the last two months I noticed a lot of posts, tweets and articles about eBPF, I was annoyed by this "hype" on my social homepages, because I didn't know absolutely anything regarding it.
-So, I googled it, and it turned out it was BPF with an 'e' as first letter :(. At the time I decided to not get involved, since it was "just a packet filter".
-But 2 days ago, I read about it in a very clear and detailed article and my first thought was: **"it absolutely worth part of my time"**.
+In the last two months I have noticed a lot of posts, tweets and articles about eBPF, I was annoyed by that "hype" on my social homepages, because I didn't know absolutely anything about it.
+So, I googled it, and it turned out it was BPF with an 'e' as first letter :(. At the time I have just decided to not get involved, since it was "just a packet filter".
+But 2 days ago, I have read about it in a very clear and detailed article and my first thought was: **"it absolutely worth part of my time"**.
 
 Well, I've done my homeworks and tried to get as much info as I could in just 2 days.
 
-## What I've learned so far...?
+## What I have learned so far...?
 
 eBPF which stands for "extended Berkeley Packet Filter", is an in-kernel virtual machine that allows user space programs to be executed in the kernel directly after they succeeded several checks.
 

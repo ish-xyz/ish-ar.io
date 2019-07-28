@@ -64,6 +64,7 @@ class Layout extends React.Component {
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Isham Araia's Blog.
+          Contact me: <a href="https://www.linkedin.com/in/isham-araia-086a986b/">LinkedIn</a> * <a href="https://twitter.com/isham_araia">Twitter</a>
         </footer>
       </div>
     )

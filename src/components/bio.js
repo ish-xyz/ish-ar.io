@@ -54,7 +54,7 @@ const Bio = () => {
         }}
       />
       <p>
-        Ciao! This is Ish(~) and here's my blog. A bunch of articles, posts and considerations about the Linux Internals.
+        Ciao! This is Ish(~) and here's my blog. A bunch of articles, posts and considerations mostly about Linux Internals.
         {` `}
         <br></br>
         <a href={`https://twitter.com/${social.twitter}`}>

@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Isham Araia's Blog`,
     author: `Isham Araia`,
-    description: `A bunch of posts, articles and consideration about the Linux Internals.`,
+    description: `A bunch of posts, articles and considerations, mostly about the Linux Internals.`,
     siteUrl: `https://ish-ar.io/`,
     social: {
       twitter: `isham_araia`,

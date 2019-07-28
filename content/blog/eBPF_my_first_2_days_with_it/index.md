@@ -1,5 +1,5 @@
 ---
-title: eBPF - My first 2 days with it.
+title: 'eBPF: My first 2 days with it.'
 date: "2019-07-27T22:25:00.000Z"
 description: "In the last two months I kept seeing posts, tweets and articles about eBPF..."
 ---
@@ -52,4 +52,4 @@ Maps is a data structure, a sort of dictionary, k/v array. Through this data str
 
 Ok that's it for today, If I wasn't clear... Well, it has been just 2 days D:
 
-;) Cheers 
+Cheers ;)

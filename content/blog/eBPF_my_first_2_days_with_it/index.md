@@ -1,14 +1,15 @@
 ---
 title: 'eBPF: My first 2 days with it.'
 date: "2019-07-27T22:25:00.000Z"
-description: "In the last two months I kept seeing posts, tweets and articles about eBPF..."
+description: "In the last two months I have noticed a lot of posts, tweets ..."
 ---
-## How I have ended up studying eBPF...
+## How I ended up studying eBPF!?
 !['ebpf_logo'](./ebpf_logo.png)
 
-In the last two months I have noticed a lot of posts, tweets and articles about eBPF, I was annoyed by that "hype" on my social homepages, because I didn't know absolutely anything about it.
-So, I googled it, and it turned out it was BPF with an 'e' as first letter :(. At the time I have just decided to not get involved, since it was "just a packet filter".
-But 2 days ago, I have read about it in a very clear and detailed article and my first thought was: **"it absolutely worth part of my time"**.
+In the last two months I have noticed a lot of posts, tweets and articles talking about eBPF, I was annoyed by that "hype", because I didn't know absolutely anything about it.
+So, I googled it, and it turned out it was BPF (yes the Berkeley Packet Filter) with an 'e' as first letter :(. At the time I decided to not get involved, since it was "just a packet filter" and nothing else.
+
+But two days ago, I have read about it in a detailed article. My only thought was: **"it absolutely worth part of my time and I need to learn it!"**.
 
 Well, I've done my homeworks and tried to get as much info as I could in just 2 days.
 
@@ -16,10 +17,10 @@ Well, I've done my homeworks and tried to get as much info as I could in just 2 
 
 eBPF which stands for "extended Berkeley Packet Filter", is an in-kernel virtual machine that allows user space programs to be executed in the kernel directly after they succeeded several checks.
 
-It can be used to do network performance improvements, SDN, security improvements and to have a better kernel debugging / tracing on your systems.
+It can be used to achieve network performance improvements, SDN, security improvements and to have a better kernel debugging / tracing on your systems.
 In this article we’ll focus more on its use for analysis purposes.
 
-**NOTE**: in case I'll mention BPF, don't get confused I'm always referring to eBPF.
+**NOTE**: in case I will mention BPF, don't get confused I'm always referring to eBPF.
 
 **What so special about it?**
 
@@ -27,7 +28,7 @@ In this article we’ll focus more on its use for analysis purposes.
 
 Well, I don't :D Never done it before and TBH I always thought it was **insane**. Very nerdy, tho.
 
-But looks like thanks to eBPF there is less need of those "insane kernel modules" to perform kernel debugging and performance analysis.
+But, it looks like that thanks to eBPF there is less need of those "insane kernel modules".
 
 **Why?**
 

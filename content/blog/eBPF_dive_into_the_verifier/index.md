@@ -44,6 +44,8 @@ Those checks are performed by the function "check_cfg" as you can see [here]('ht
 
 !['eBPF_verifier_meme'](./meme.jpg)
 
+
+
 After the first check, the verifier will try every path of your BPF code.
 Whenever comes into a condition, it explore one path and push the instructions for the other path into a stack. If it will reach bpf_exit() without any issues, with an R0 value, the verifier will then start taking the instructions and checks any other code path from the stack (which is a LIFO so it will start from the last pushed).
 

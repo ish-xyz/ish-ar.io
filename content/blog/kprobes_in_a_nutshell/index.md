@@ -19,7 +19,7 @@ kprobe struct and the saved registers."*
 
 ~ So basically it allows you to run 2 functions, pre_handler and post_handler, every time the probed function is invoked ~
 
-To be honest, the first time I heard about Kprobes, Jprobes, Kretprobes and whatever... it all sounded a bit complicated to me. Happy to say though, that after some hours doing researches, it now start to make sense.
+To be honest, the first time I heard about Kprobes, Jprobes, Kretprobes and so on ... It all sounded a bit complicated to me. Happy to say though, that after some hours doing researches, it now start to make sense.
 
 Note that nowadays there is an easier way to use Kprobes than the one I'll show you today ... but I'll write about that in the next article. Yes I am talking about bpf() !
 
@@ -36,7 +36,7 @@ You need a **Linux machine** !
 !['genius'](./genius.gif)
 
 
-*NOTE: I've only tested this tutorial on my private server (Ubuntu 18.04.2 LTS Bionic Beaver) so you might need to find the right packages names if you're using a different OS, and the Kernel module we'll create might not work on different architectures.*
+*NOTE: I've only tested this procedure on my private server (Ubuntu 18.04.2 LTS Bionic Beaver) so you might need to find the right packages names if you're using a different OS, and the Kernel module we'll create might not work on different architectures.*
 
 1.	Create the workdir and install the required packages.
 

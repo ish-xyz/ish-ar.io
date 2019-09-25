@@ -6,9 +6,9 @@ description: "Concept of actionable alerts and self-healing..."
 
 ## Introduction
 
-I got back from holiday 2 weeks ago, and while I was lying on the beach, I enjoyed reading Brendan Gregg's book "System Performace: Enterprise and the Cloud". First, let me say that this book is awesome, it has been in my "things to study" list for a long time, and now I'm so happy to have it between my hands.
+I got back from holiday 2 weeks ago, and while I was lying on the beach, I enjoyed reading Brendan Gregg's book "System Performance: Enterprise and the Cloud". First, let me say that this book is awesome, it has been in my "things to study" list for a long time, and now I'm so happy to have it between my hands.
 
-Chapter two of the book illustrate some interesting analisys methods and I'm going to talk about one of them and how can be applied in another context.
+Chapter two of the book illustrates some interesting analysis methods and I'm going to talk about one of them and how can be applied in another context.
 
 The method is called “Ad Hoc Checklist Method” and is described as follow:
 
@@ -21,17 +21,17 @@ Even if I'll mention some existing tools, this is not a tutorial, but a concept/
 
 ## Concept
 
-Nowdays a lot of tools and platforms helps us to have a wide and detailed visibility across IT infrastructures.
+Nowadays a lot of tools and platforms help us to have wide and detailed visibility across IT infrastructures.
 
 90-99% of the time these tools are more than enough, but what about the remaining 1-10% ?
 
 When something occurs, and your monitoring setup didn't prevent the incident from happening, is there anything that could help you to have a faster analysis of your systems?
 
-Let's analyse what humans do when an incident occurs.
+Let's analyze what humans do when an incident occurs.
 
-First, there are "roles". Usually when is time to handle incidents there is an incident commander, an incident officier and a bunch of SMEs (Subject Matter Experts). They all work together to solve the issue as fast as possible.
+First, there are "roles". Usually, when it is time to handle incidents there is an incident commander, an incident officer and a bunch of SMEs (Subject Matter Experts). They all work together to solve the issue as fast as possible.
 
-We will focus on what the SME does. Usually the SME try to get as much information as possible to have a clear visualization of the incident and the infrastructure, part of this information could come from monitoring tools, others from logs, others from completely different platforms logs and so on.
+We will focus on what the SME does. Usually, the SME try to get as much information as possible to have a clear visualization of the incident and the infrastructure, part of this information could come from monitoring tools, others from logs, others from completely different platforms logs and so on.
 
 I truly believe that in the same way logs can provide solutions instead of presenting the problem (e.g.: "git cmmit" --> will print: The most similar command is "git commit") monitoring tools can provide a better diagnosis and actionable alerts instead of only reporting the problem.
 
@@ -39,9 +39,9 @@ Let's picture the following scenario.
 
 ## Scenario
 
-It's 1AM and there is a network partition error. One of ours distributed system is not able to determine who is the leader of the cluster and new workloads cannot be applied on Service-X.
+It's 1AM and there is a network partition error. One of our distributed system is not able to determine who is the leader of the cluster and new workloads cannot be applied on Service-X.
 
-Engineer-Y receive an alert from Prometheus which is the monitoring system implemented in the company.
+Engineer-Y receives an alert from Prometheus which is the monitoring system implemented in the company.
 
 The monitoring system works like this:
 
@@ -58,10 +58,10 @@ New workload cannot be applied to Service-X, in DATACENTER-N due to "network par
 
 Engineer-Y take his laptop, connect to the instances and notice that there's no connectivity between them on port 12345/TCP, which is the connection used by Service-X.
 
-He also checks if there are bigger issues and, doing that, notice that the security groups of the instances has been changed via Terraform 5 minutes ago from a schedulated job. 
+He also checks if there are bigger issues and, doing that, notice that the security groups of the instances have been changed via Terraform 5 minutes ago from a scheduled job. 
 The Terraform code is wrong and somehow it passed all the tests and ended-up in production. 
 
-He fix the security group manually, open a jira ticket to not forget the issue and perform more investigations the next day, and he goes back to sleep.
+He fixes the security group manually, open a jira ticket to not forget the issue and perform more investigations the next day, and he goes back to sleep.
 **Incident solved!**
 
 Now imagine if the monitoring platform would work like this:
@@ -117,19 +117,19 @@ y
 
 ## Scenario consideration
 
-In this case the AlertManager-Bot is using the analysis method called "Ad Hoc Checklist Method" and taking some actions with the supervision of Engineer-Y.
+In this case, the AlertManager-Bot is using the analysis method called "Ad Hoc Checklist Method" and taking some actions with the supervision of Engineer-Y.
 
-A situation like that actually helped Engineer-Y to have a faster resolution and Engineer-Y didn't even need to open the laptop.
+A situation like that helped Engineer-Y to have a faster resolution and Engineer-Y didn't even need to open the laptop.
 
 I'm pretty sure that right now you're saying/thinking something like: "I wish it will be always so easy", but I truly believe that at least auto-diagnosis can be reached on IT infrastructures and in most of the cases can return an actionable output instead of a plain alert.
 
 ## Some Pros and Cons
 
 Pros:
-* A potential correlation between business issues and techical issues could be easier to find out and to solve.
-* Actionable alerts could solve IT infrastructures incidents faster.
+* A potential correlation between business issues and technical issues could be easier to find out and to solve.
+* Actionable alerts could solve IT infrastructure incidents faster.
 * Actionable alerts could potentially solve issues by themselves without any human interactions.
-* Actionable alerts with the help of ML could present more and more accurate diagnosis on IT infrastructures.
+* Actionable alerts with the help of ML could present more and more accurate diagnosis of IT infrastructures.
 
 Cons:
 * It might take a lot of time to maintain and write all those actionable alerts.
@@ -140,6 +140,6 @@ Cons:
 
 In the next article I'll do a tutorial to show you how achieve self-healing with the current monitoring technologies.
 
-In the tutorial we will use: Prometheus + Alertmanager + GOCD (or) Jenkins.
+In the tutorial, we will use Prometheus + Alertmanager + GOCD (or) Jenkins.
 
 That's all for today!

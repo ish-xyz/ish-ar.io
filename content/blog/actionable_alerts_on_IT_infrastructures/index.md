@@ -138,8 +138,6 @@ Cons:
 
 ## What's next?
 
-In the next article I'll do a tutorial to show you how achieve self-healing with the current monitoring technologies.
+In the next article I'm going to show you how to perform unit testing on the Prometheus Alert Rules.
 
-In the tutorial, we will use Prometheus + Alertmanager + GOCD (or) Jenkins.
-
-That's all for today!
+Hope you liked the article, that's all for today!

@@ -4,4 +4,4 @@ layout: nil
 User-agent: *
 Disallow: 
 
-Sitemap: {{ site.url }}/sitemap.xml 
+Sitemap: https://ish-ar.io/sitemap.xml 

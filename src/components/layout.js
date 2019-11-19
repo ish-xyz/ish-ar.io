@@ -12,24 +12,36 @@ class Layout extends React.Component {
 
     if (location.pathname === rootPath) {
       header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
+        <span>
+          <h1
             style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
+              ...scale(1.5),
+              marginBottom: rhythm(0),
+              marginTop: 0,
             }}
-            to={`/`}
           >
-            {title}
-          </Link>
-        </h1>
+
+            <Link
+              style={{
+                boxShadow: `none`,
+                textDecoration: `none`,
+                color: `inherit`,
+              }}
+              title={title}
+              to={`/`}
+            >
+              {title}
+            </Link>
+          </h1>
+          <h2
+            style={{
+              marginTop: rhythm(0.5),
+              marginBottom: rhythm(2),
+            }}
+          > 
+              Observability, Linux Internals, Devops and more... 
+          </h2>
+        </span>
       )
     } else {
       header = (
@@ -65,7 +77,7 @@ class Layout extends React.Component {
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Isham Araia's Blog.
-          Contact me: <a href="https://www.linkedin.com/in/isham-araia-086a986b/">LinkedIn</a> * <a href="https://twitter.com/isham_araia">Twitter</a>
+          Contact me: <a target="_blank" title="Isham Araia's Twitter Profile" href="https://www.linkedin.com/in/isham-araia-086a986b/">LinkedIn</a> * <a target="_blank" title="Isham Araia's Twitter Profile" href="https://twitter.com/isham_araia">Twitter</a>
         </footer>
       </div>
     )

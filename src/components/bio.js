@@ -54,12 +54,9 @@ const Bio = () => {
         }}
       />
       <p>
-        Ciao! This is Ish(~) and here's my blog. A bunch of articles, posts and considerations mostly about Linux Internals.
-        {` `}
+        Ciao! This is Ish(~) and here's my blog. A bunch of articles, posts and considerations mostly from projects I am currelty following.
         <br></br>
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should really follow me on Twitter ^^'
-        </a>
+        I would love to listen your opinion or answer your questions, so please feel free to get in touch on <a target="_blank" title="Isham Araia's Twitter Profile" href={`https://twitter.com/${social.twitter}`}> Twitter</a>! :D
       </p>
     </div>
   )

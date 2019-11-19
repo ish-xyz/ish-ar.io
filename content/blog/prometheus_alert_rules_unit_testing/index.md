@@ -1,7 +1,7 @@
 ---
 title: 'How to perform syntax testing & unit testing on your Prometheus Alert Rules'
 date: "2019-11-18T15:01:00.000Z"
-description: "In the past two months, I have been very busy, but I've finally got the time..."
+description: "In the past two months, I have been very busy, but I've finally got the time to write an article! Today I'm going to write about unit testing, to be precise unit testing on your Prometheus Alert Rules. If you don't know what Prometheus is you might want to check its website first, as this is gonna be a pretty specific article..."
 ---
 
 In the past two months, I have been very busy, but I've finally got the time to write an article! 

@@ -1,12 +1,12 @@
 ---
 title: 'Auto-diagnosis and actionable alerts on IT infrastructures'
 date: "2019-09-25T20:13:00.000Z"
-description: "Concept of actionable alerts and self-healing..."
+description: "I got back from holiday 2 weeks ago, and while I was lying on the beach, I enjoyed reading Brendan Gregg's book 'System Performance: Enterprise and the Cloud'. First, let me say that this book is awesome, it has been in my 'to read' list for a long time, and now I'm so happy to have it between my hands..."
 ---
 
 ## Introduction
 
-I got back from holiday 2 weeks ago, and while I was lying on the beach, I enjoyed reading Brendan Gregg's book "System Performance: Enterprise and the Cloud". First, let me say that this book is awesome, it has been in my "things to study" list for a long time, and now I'm so happy to have it between my hands.
+I got back from holiday 2 weeks ago, and while I was lying on the beach, I enjoyed reading Brendan Gregg's book "System Performance: Enterprise and the Cloud". First, let me say that this book is awesome, it has been in my "to read" list for a long time, and now I'm so happy to have it between my hands.
 
 Chapter two of the book illustrates some interesting analysis methods and I'm going to talk about one of them and how can be applied in another context.
 

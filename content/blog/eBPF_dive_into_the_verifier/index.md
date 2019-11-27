@@ -4,7 +4,7 @@ date: "2019-08-02T18:00:00.000Z"
 description: "If you have already read my previous article, you probably know what the verifier is. Anyway let's make a short recap.
 eBPF allows you to execute a program (BPF bytecode) directly inside the kernel through an in-kernel VM. Since the code comes from the user space, and as users we do a lot of mistakes (believe me), the code needs to be checked before the execution...."
 ---
-NOTE: *If you don't know what eBPF is you should checkout my [previous post]('https://ish-ar.io/eBPF_my_first_2_days_with_it/')*
+NOTE: *If you don't know what eBPF is you should checkout my [previous post](https://ish-ar.io/eBPF_my_first_2_days_with_it/)*
 
 ## What is the eBPF verifier?
 
@@ -34,11 +34,11 @@ Also, your program must be compliant with the following:
 
 - You cannot use loops and call other fuctions, except for the BPF helpers and functions defined as __always_inline.
 
-- Your program can't be larger then BPF_MAXINSNS instructions (according to the macro in [bpf_common.h](https://elixir.bootlin.com/linux/latest/source/include/uapi/linux/bpf_common.h) the limit for the Linux Kernel is 4096.)
+- Your program can't be larger then BPF_MAXINSNS instructions, according to the macro in [bpf_common.h](https://elixir.bootlin.com/linux/latest/source/include/uapi/linux/bpf_common.h) the limit for the Linux Kernel is 4096.
 
 - Last but not least: unreachable code is not allowed.
 
-Those checks are performed by the function "check_cfg" as you can see [here]('https://github.com/torvalds/linux/blob/master/kernel/bpf/verifier.c').
+Those checks are performed by the function "check_cfg" as you can see [here](https://github.com/torvalds/linux/blob/master/kernel/bpf/verifier.c).
 
 
 ## eBPF verifier: second check.

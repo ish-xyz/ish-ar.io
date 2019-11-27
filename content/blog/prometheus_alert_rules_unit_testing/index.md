@@ -8,7 +8,7 @@ In the past two months, I have been very busy, but I've finally got the time to 
 
 Today I'm going to write about unit testing, to be precise unit testing on your **Prometheus Alert Rules**.
 
-If you don't know what Prometheus is you might want to check its [website]("https://prometheus.io/") first, as this is gonna be a pretty specific article.
+If you don't know what Prometheus is you might want to check its [website](https://prometheus.io/) first, as this is gonna be a pretty specific article.
 
 For who doesn't know what **unit tests** are, here is the definition from wikipedia.org:
 
@@ -51,7 +51,7 @@ So... let's try it!
 
 ### 1. Install promtool and set up the environment:
 
-If you have docker installed you can just download and run the [docker image]("https://hub.docker.com/r/ishario/promtool") I've prepared for you with:
+If you have docker installed you can just download and run the [docker image](https://hub.docker.com/r/ishario/promtool) I've prepared for you with:
 
 ```
 docker pull ishario/promtool:1.0.0
@@ -256,5 +256,5 @@ This might look like extra work for you, but as long as it keeps the environment
 
 Hope this has been useful to you!
 
-If you have any queries, let me know on [twitter]('https://twitter.com/isham_araia')! 
+If you have any queries, let me know on [twitter](https://twitter.com/isham_araia)! 
 

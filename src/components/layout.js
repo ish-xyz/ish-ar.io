@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
-
 import { rhythm, scale } from "../utils/typography"
+
 import "./layout.css"
 
 class Layout extends React.Component {
@@ -45,7 +45,7 @@ class Layout extends React.Component {
       )
     } else {
       header = (
-        <h3
+        <h4
           style={{
             fontFamily: `Montserrat, sans-serif`,
             marginTop: 0,
@@ -61,7 +61,7 @@ class Layout extends React.Component {
           >
             {title}
           </Link>
-        </h3>
+        </h4>
       )
     }
     return (

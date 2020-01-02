@@ -19,26 +19,26 @@ kprobe struct and the saved registers."*
 
 ~ So basically it allows you to run 2 functions, pre_handler and post_handler, every time the probed function is invoked ~
 
-To be honest, the first time I heard about Kprobes, Jprobes, Kretprobes and so on ... It all sounded a bit complicated to me. Happy to say though, that after some hours doing researches, it now start to make sense.
+To be honest, the first time I heard about Kprobes, Jprobes, Kretprobes and so on ... It all sounded a bit complicated to me. Happy to say though, that after some hours doing researches, it now starts to make sense.
 
-Note that nowadays there is an easier way to use Kprobes than the one I'll show you today ... but I'll write about that in the next article. Yes I am talking about bpf() !
+Note that nowadays there is an easier way to use Kprobes than the one I'll show you today ... but I'll write about that in the next article. Yes, I am talking about bpf() !
 
 **So how are we going to use Kprobes today?**
 
-Easy! By creating a **simple** kernel module, inserting it into our Kernel and testing it. Dont' be scared it is a really simple task even if it sounds tricky.
+Easy! By creating a **simple** kernel module, inserting it into our Kernel and testing it. Don't be scared it is a really simple task even if it sounds tricky.
 
 **TUTORIAL GOAL**: Create a kernel module that uses Kprobes to count anytime the function ${function} is used.
 
 First thing first: REQUIREMENTS!
 
-You need a **Linux machine** !
+You need a **Linux machine**!
 
 !['genius'](./genius.gif)
 
 
 *NOTE: I've only tested this procedure on my private server (Ubuntu 18.04.2 LTS Bionic Beaver) so you might need to find the right packages names if you're using a different OS, and the Kernel module we'll create might not work on different architectures.*
 
-1.	Create the workdir and install the required packages.
+1.	Create the working directory and install the required packages.
 
 	```
 	mkdir ./ish-ar.io-lab/ && \
@@ -61,9 +61,9 @@ You need a **Linux machine** !
 			rm -rf *.o *.ko *.mod.* .c* .t*
 
     ```
-    <sup>*NOTE: when you need to call ```make``` inside a ```Makefile``` it is a best practices to use the variable ```$(MAKE)``` not the command.*</sup>
+    <sup>*NOTE: when you need to call ```make``` inside a ```Makefile``` it is a best practice to use the variable ```$(MAKE)``` not the command.*</sup>
 	
-	**IMPORTANT -> Ensure you're using tabs and not spaces on your Makefile, otherwise you'll get an error saying:**
+	**IMPORTANT: Make sure you're using tabs and not spaces on your Makefile, otherwise you'll get an error saying:**
 	```
 	Makefile:N: *** missing separator (did you mean TAB instead of 4 spaces?).  Stop.
 
@@ -72,7 +72,7 @@ You need a **Linux machine** !
 3.  We need to find out which function we want to count/intercept.
 
 
-	* In this example I wanted to count everytime a program is executed. So I've searched the function I wanted like this:
+	* In this example, I wanted to count every time a program is executed. So I've searched the function I wanted to like this:
 		```
 		strace ls 2>&1 | less
 
@@ -96,7 +96,7 @@ You need a **Linux machine** !
 
 		```
 
-		<sup>*If you don't know what this file ```/proc/kallsyms``` is, you should checkout this page -> https://onebitbug.me/2011/03/04/introducing-linux-kernel-symbols/*</sup>
+		<sup>*If you don't know what this file ```/proc/kallsyms``` is, you should check out this page -> https://onebitbug.me/2011/03/04/introducing-linux-kernel-symbols/*</sup>
 
 	* So, we have our function called sys_execve and its address is ffffffffbcc7f010.
 
@@ -105,7 +105,7 @@ You need a **Linux machine** !
 
     - We need to include the required libraries, so at the top of our C program let's type:
 	
-		*NOTE: This library #include<linux/kprobes.h> as you see by its name is absolutely foundamental to use kprobes.*
+		*NOTE: This library #include<linux/kprobes.h> as you can notice by its name is fundamental to use kprobes.*
 		```
 		#include<linux/module.h>
 		#include<linux/version.h>
@@ -122,9 +122,9 @@ You need a **Linux machine** !
 
 		```
 
-    - Do you remeber I've written about the pre_handler and post_handler functions? Let's create them first.
+    - Do you remember I've written about the pre_handler and post_handler functions? Let's create them first.
 
-    	*Just as a remind: the pre_handler function it is execute right before our intercepted function and the post_handler function it is executed after it.*
+    	*Just as a reminder: the pre_handler function is executed right before our intercepted function and the post_handler function is executed after it.*
 
 		```
 		int kpb_pre(struct kprobe *p, struct pt_regs *regs){
@@ -138,7 +138,7 @@ You need a **Linux machine** !
 
 		```
 
-    - Right after this 2 functions let's create our module entry-point and exit-point.
+    - Right after these 2 functions let's create our module entry-point and exit-point.
 		```
 		int minit(void)
 		{
@@ -163,7 +163,7 @@ You need a **Linux machine** !
 
 		```
 
-		Everytime you insert this module the function minit will be triggered and if you remove the kernel module the function mexit will be invoked.
+		Every time you insert this module the function minit will be triggered and if you remove the kernel module the function mexit will be invoked.
 
 
 		**IMPORTANT**: Replace ```kp.addr = (kprobe_opcode_t *)0xffffffff8d67f010;``` with the function memory address you discovered at step 3 --> ```kp.addr = (kprobe_opcode_t *)0xFUNCTION_MEMORY_ADDRESS;```.
@@ -216,7 +216,7 @@ You need a **Linux machine** !
 
 6. Now let's build and insert our module:
 
-	* Type inside your workdir:
+	* Type inside your working directory:
 		```
 		make
 
@@ -246,7 +246,7 @@ You need a **Linux machine** !
 
 		```
 
-7. 	Does it works? Let's test it!
+7. 	Does it work? Let's test it!
 	We need to execute something so let's type ```ls``` and then see dmesg:
 
 	```
@@ -259,7 +259,7 @@ You need a **Linux machine** !
 
 	```
 
-	So if you have an ouput like this... YES! It works!
+	So if you have an output like this... YES! It works!
 
 8. 	To remove the module just type:
 	```
@@ -274,4 +274,4 @@ You need a **Linux machine** !
 
 **What we've learned?**
 
-**How to use Kprobes using kernel modules, what are the pre_handler and post_handler and how to use them to count everytime a function is called (e.g.: sys_execve)**
+**How to use Kprobes using kernel modules, what are the pre_handler and post_handler and how to use them to count every time a function is called (e.g.: sys_execve)**

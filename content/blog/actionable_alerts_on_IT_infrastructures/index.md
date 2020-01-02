@@ -39,7 +39,7 @@ Let's picture the following scenario.
 
 ## Scenario
 
-It's 1AM and there is a network partition error. One of our distributed system is not able to determine who is the leader of the cluster and new workloads cannot be applied on Service-X.
+It's 1 AM and there is a network partition error. One of our distributed systems is not able to determine who is the leader of the cluster and new workloads cannot be applied on Service-X.
 
 Engineer-Y receives an alert from Prometheus which is the monitoring system implemented in the company.
 
@@ -56,7 +56,7 @@ The monitoring system works like this:
 The alert says: 
 New workload cannot be applied to Service-X, in DATACENTER-N due to "network partition error", instances involved are {instance1, 2, 3...}.
 
-Engineer-Y take his laptop, connect to the instances and notice that there's no connectivity between them on port 12345/TCP, which is the connection used by Service-X.
+Engineer-Y takes his laptop, connect to the instances and notice that there's no connectivity between them on port 12345/TCP, which is the connection used by Service-X.
 
 He also checks if there are bigger issues and, doing that, notice that the security groups of the instances have been changed via Terraform 5 minutes ago from a scheduled job. 
 The Terraform code is wrong and somehow it passed all the tests and ended-up in production. 
@@ -68,7 +68,7 @@ Now imagine if the monitoring platform would work like this:
 
 !['auto-alerts-diagram'](./actionable-alerts.png)
 
-It's 1AM again and the AlertManager-Bot present to Engineer-Y a bunch of additional information and ask if the engineer needs more help through Slack.
+It's 1 AM again and the AlertManager-Bot present to Engineer-Y a bunch of additional information and ask if the engineer needs more help through Slack.
 
 **SLACK CHAT:**
 
@@ -138,6 +138,6 @@ Cons:
 
 ## What's next?
 
-In the next article I'm going to show you how to perform unit testing on the Prometheus Alert Rules.
+In the next article, I'm going to show you how to perform unit testing on the Prometheus Alert Rules.
 
-Hope you liked the article, that's all for today!
+I hope you liked the article, that's all for today!

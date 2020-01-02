@@ -11,7 +11,8 @@ And the project is ...
 
 ** drumroll ** 
 
-**Another Boring Kubernetes Bootstrap tool!**
+[Another Boring Kubernetes Bootstrap tool](https://github.com/ish-xyz/kubernetes-on-aws)
+
 
 !['kubernetes-logo'](./kubernetes-logo.jpg)
 

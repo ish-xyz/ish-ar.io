@@ -54,9 +54,9 @@ const Bio = () => {
         }}
       />
       <p>
-        Ciao! This is Ish(~) and here's my blog. A bunch of articles, posts and considerations mostly from projects I am currelty following.
+        Ciao! This is Ish(~) and here's my blog. A bunch of articles, posts and considerations mostly from projects I am currently following.
         <br></br>
-        I would love to listen your opinion or answer your questions, so please feel free to get in touch on <a target="_blank" title="Isham Araia's Twitter Profile" href={`https://twitter.com/${social.twitter}`}> Twitter</a>! :D
+        I would love to read your opinions or answer the questions you might have, so please feel free to get in touch on <a target="_blank" title="Isham Araia's Twitter Profile" href={`https://twitter.com/${social.twitter}`}> Twitter</a>! :D
       </p>
     </div>
   )

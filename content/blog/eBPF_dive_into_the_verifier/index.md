@@ -10,11 +10,11 @@ NOTE: *If you don't know what eBPF is you should check out my [previous post](ht
 
 !['sherlock'](./sherlock.jpg)
 
-If you have already read my previous article, you probably know what the **verifier** is. Anyway, let's make a short recap.
+If you have already read my previous article, you probably know what **eBPF** is. Anyway, let's make a short recap.
 
 eBPF allows you to execute a program (BPF bytecode) directly inside the kernel through an in-kernel VM. Since the code comes from the user space, and as users we do a lot of mistakes (believe me), the code needs to be checked before the execution.
 
-For that reason, there's a component called "verifier" which verifies ( :D ) your code before proceeding with the execution.
+For that reason, there's a component called "verifier" which verifies ( ^^' ) your code before proceeding with the execution.
 
 This component is like 10k rows of C. Really readable, tho.
 Today I'll try to explain some of the checks performed by it and some limitations that you must follow when writing your BPF program.
@@ -44,7 +44,6 @@ Those checks are performed by the function "check_cfg" as you can see [here](htt
 ## eBPF verifier: second check.
 
 !['eBPF_verifier_meme'](./meme.jpg)
-
 
 
 After the first check, the verifier will try every path of your BPF code.

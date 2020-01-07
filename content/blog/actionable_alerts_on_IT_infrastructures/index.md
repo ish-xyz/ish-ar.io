@@ -8,7 +8,7 @@ description: "I got back from holiday 2 weeks ago, and while I was lying on the 
 
 I got back from holiday 2 weeks ago, and while I was lying on the beach, I enjoyed reading Brendan Gregg's book "System Performance: Enterprise and the Cloud". First, let me say that this book is awesome, it has been in my "to read" list for a long time, and now I'm so happy to have it between my hands.
 
-Chapter two of the book illustrates some interesting analysis methods and I'm going to talk about one of them and how can be applied in another context.
+Chapter two of the book illustrates some interesting analysis methods. I'm going to talk about one of them and how can be applied as an **observability strategy**.
 
 The method is called “Ad Hoc Checklist Method” and is described as follow:
 
@@ -17,15 +17,15 @@ A typical scenario involves the deployment of a new server or application in pro
 and a support professional spending half a day checking for common issues now that the system is under real load.”
 
 This article will walk you through "The concept of auto-diagnosis and actionable alerts on IT infrastructures" using the method explained above.
-Even if I'll mention some existing tools, this is not a tutorial, but a concept/idea.
+Even if I will mention some existing tools, this is not a tutorial, but a concept/idea.
 
 ## Concept
 
-Nowadays a lot of tools and platforms help us to have wide and detailed visibility across IT infrastructures.
+Nowadays a lot of tools and platforms help us to have wide and detailed observability across IT infrastructures.
 
 90-99% of the time these tools are more than enough, but what about the remaining 1-10% ?
 
-When something occurs, and your monitoring setup didn't prevent the incident from happening, is there anything that could help you to have a faster analysis of your systems?
+When something occurs and your monitoring setup didn't prevent the incident from happening, is there anything that could help you to have a faster analysis of your systems?
 
 Let's analyze what humans do when an incident occurs.
 
@@ -43,7 +43,7 @@ It's 1 AM and there is a network partition error. One of our distributed systems
 
 Engineer-Y receives an alert from Prometheus which is the monitoring system implemented in the company.
 
-The monitoring system works like this:
+Prometheus is configured like this:
 
 !['monitoring-diagram'](./non-actionable-alerts.png)
 
@@ -64,7 +64,7 @@ The Terraform code is wrong and somehow it passed all the tests and ended-up in 
 He fixes the security group manually, open a jira ticket to not forget the issue and perform more investigations the next day, and he goes back to sleep.
 **Incident solved!**
 
-Now imagine if the monitoring platform would work like this:
+Now imagine if you have a good **observability** strateg and the monitoring platform would work like this:
 
 !['auto-alerts-diagram'](./actionable-alerts.png)
 

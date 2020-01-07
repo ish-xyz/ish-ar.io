@@ -21,7 +21,7 @@ kprobe struct and the saved registers."*
 
 To be honest, the first time I heard about Kprobes, Jprobes, Kretprobes and so on ... It all sounded a bit complicated to me. Happy to say though, that after some hours doing researches, it now starts to make sense.
 
-Note that nowadays there is an easier way to use Kprobes than the one I'll show you today ... but I'll write about that in the next article. Yes, I am talking about bpf() !
+Note that nowadays there is an easier way to use Kprobes than the one I'll show you today ... but I'll write about that in one of the next articles. Yes, I am talking about bpf() !
 
 **So how are we going to use Kprobes today?**
 

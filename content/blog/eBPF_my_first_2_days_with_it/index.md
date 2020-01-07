@@ -6,10 +6,12 @@ description: "In the last two months I have noticed a lot of posts, tweets and a
 ## How I ended up studying eBPF!?
 !['ebpf_logo'](./ebpf_logo.png)
 
-In the last two months, I have noticed a lot of posts, tweets, and articles talking about eBPF, I was annoyed by that "hype", because I didn't know absolutely anything about it.
-So, I googled it, and it turned out it was BPF (yes the Berkeley Packet Filter) with an 'e' as first letter :(. At the time I decided to not get involved since it was "just a packet filter" and nothing else.
+In the last two months, I have noticed a lot of posts, tweets, and articles talking about eBPF.
+I was annoyed by that "hype", because I didn't know absolutely anything about it.
 
-But two days ago, I have read about it in a detailed article. My only thought was: **"it absolutely worth part of my time and I need to learn it!"**.
+So, I googled it, and it turned out it was a new version of BPF (yes the Berkeley Packet Filter) with an 'e' as first letter :(. At the time I decided to not get involved since I thought "just a packet filter" and nothing else.
+
+But two days ago, I have read about it in a detailed article. My only thought was: **"I absolutely need to understand learn it!"**.
 
 Well, I've done my homework and tried to get as much info as I could in just 2 days.
 
@@ -44,7 +46,7 @@ By running some checks and sandboxing the code that needs to be executed. I'll p
 Anyway, finally, your code has passed the verifier checks and now the fun part. What makes this feature/tools so incredible is that you can actually attach your code to Kprobes, Jprobes, tracepoints (If you don't know what those are and you can't wait for my next post next week-ish, well I'm afraid you'll need to search elsewhere :( ).
 
 **The ADVANTAGE:**
-*Instead of dumping all the kernel events and post-process them, you can actually get only the data you need from those probes and tracepoints which eBPF use as data sources.*
+*Instead of dumping all the kernel events and post-process them, you can actually get only the data you need from those probes and tracepoints which eBPF use as data sources. This will help a lot your infrastructure observability, in particular when it comes to kernel tracing and debugging.*
 
 **How the early retrieved data come back to the userspace?**
 

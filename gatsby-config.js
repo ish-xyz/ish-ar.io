@@ -10,6 +10,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: `https://ish-ar.io`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-hotjar`,
       options: {
         id: 1627336,

@@ -20,8 +20,31 @@ For who doesn't know what SLOs are, here's a short definition from the book:
 
 As written above, to define a correct SLO for a specific service, we need to understand what's the actual indicator.
 
-For example, let's say that our service is the-sre-market.io, a famous online store for SREs. We now define that the key indicators (SLIs) are availability and latency (which is quite common for this kind of service). After different analyses, we identified that the target availability is 99% of the total time, and the response time cannot be higher than 1000ms.
-And just like this, we have defined our 2 SLOs. It's a good practice to write SLOs in documents like the one reported below, as they most likely become part of a Service Level Agreement (SLA).
+For example, let's say that our service is the-sre-market.io, a famous online store for SREs.
+We now define that the key indicators (SLIs) are availability and latency (which is quite common for this kind of service).
+
+After different analyses, we identified that the target availability is 99% of the total time, and the response time cannot be higher than 100ms. Therefore, we have now defined our first two SLOs. 
+
+
+
+    NOTE: To define a target SLO you will need to perform tests and analysis.
+    It's a good staring point to think about what users really care.
+    In addition, remember that is not a tech-only activity and it will 
+    most likely needs to involve the business. 
+    SREs should be part of this discussion in order to advise 
+    on the risks and viability of different options.
+
+    When defining targets remember this points:
+
+        1. Ask yourself what features users care the most.
+        2. Don’t pick a target based on current performance.
+        3. Keep it simple.
+        4. Have as few SLOs as possible.
+        5. Done is better than perfect.
+
+
+
+It's a good practice to write SLOs in documents like the one reported below, as they most likely become part of a Service Level Agreement (SLA).
 
 !['slo-document'](./slo.png)
 

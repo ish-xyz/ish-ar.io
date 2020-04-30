@@ -11,7 +11,7 @@ Therefore, today's article is not going to be an "how-to" or some deep-dive mate
 If you don't already know, the exam is 3 hours hands-on and proctored test, and it can be done from your room (Yes, it's COVID-19-friendly!)
 
 The exam has 24 exercises that need to be completed on time; every task has a different value to the final score.
-The CKA_CV1.18 provided by the CNCF can give you a better idea about how the exam is structured.
+The ["CKA Curriculum"]('https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_V1.18.pdf') can give you a better idea about how the exam is structured.
 
 !['cka-logo'](./cka.png)
 
@@ -60,12 +60,15 @@ Short answer: you don't **need** to, but that's a way to get familiar with Kuber
 9 - **During the exam: do not forget to change the Kubernetes context.**
 
 At the start of every task, the exam interface will show you the kubectl command to switch to the right context, copy/paste, and run it, always!
+
 *Also, pay attention to details! (e.g., make sure you're always on the right namespace, using/creating the right api-resources)*
 
 10 - Make sure, **before** the exam, that everything works: examslocal.com, your webcam, screen sharing options, your microphone, etc.
 
 ## After the exam?
 
-If you are working with Kubernetes than fantastic, you already know what to do. If not, well, maybe try to get involved with the Kubernetes community. There are tons of things that need to be done!
+If you are working with Kubernetes then fantastic, you already know what to do. 
+
+If not, well, maybe try to get involved with the Kubernetes community. There are tons of things that need to be done!
 
 I hope this article will be useful for your exam; if so, let me know!

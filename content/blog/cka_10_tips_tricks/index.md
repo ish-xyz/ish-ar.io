@@ -11,7 +11,7 @@ Therefore, today's article is not going to be an "how-to" or some deep-dive mate
 If you don't already know, the exam is 3 hours hands-on and proctored test, and it can be done from your room (Yes, it's COVID-19-friendly!)
 
 The exam has 24 exercises that need to be completed on time; every task has a different value to the final score.
-The ["CKA Curriculum"]('https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_V1.18.pdf') can give you a better idea about how the exam is structured.
+The [CKA Curriculum](https://github.com/cncf/curriculum/blob/master/CKA_Curriculum_V1.18.pdf) can give you a better idea about how the exam is structured.
 
 !['cka-logo'](./cka.png)
 
@@ -20,7 +20,7 @@ The ["CKA Curriculum"]('https://github.com/cncf/curriculum/blob/master/CKA_Curri
 
 1 - **Find your source of knowledge.**
 
-If you don't want to spend too much you can either read the book ["Kubernetes in Action"]('https://www.manning.com/books/kubernetes-in-action') or follow the ["Linux Academy CKA course"]('https://linuxacademy.com/course/cloud-native-certified-kubernetes-administrator-cka/') which covers about 80/90% of the things that you need to know.
+If you don't want to spend too much you can either read the book [Kubernetes in Action](https://www.manning.com/books/kubernetes-in-action/) or follow the [Linux Academy CKA course](https://linuxacademy.com/course/cloud-native-certified-kubernetes-administrator-cka/) which covers about 80/90% of the things that you need to know.
 Remember this is a practical exam, so probably an interactive course is a better idea than a book, but that's up to you. I have used both.
 
 2 - **Stick to the course or book and don't skip anything.**

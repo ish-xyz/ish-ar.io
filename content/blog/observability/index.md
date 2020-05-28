@@ -17,7 +17,7 @@ So this means that your old monolith application must now expose its internal st
 
 As you can see, observability comes with a lot of different aspects, and it may be unclear at first glance. In this article, I will try to explain it simply and efficiently. We will consider what's the difference from monitoring, the **Three Pillars of Observability**, and finally, the existing standard tools.
 
-## Observability vs. Monitoring: what's the difference?
+## 1 - Observability vs. Monitoring: what's the difference?
 
 
 !['monitoring_vs_observability'](./monitoring_vs_observability.png)
@@ -52,7 +52,7 @@ The amount of available tools is also increasing drastically; there are so many 
 To successfully deliver and run your product under these conditions, you need **observability**.
 
 
-## 3 Pillars of Observability
+## 2 - The Three Pillars of Observability
 
 !['three_pillars_observability'](./three_pillars_observability.jpg)
 
@@ -83,7 +83,7 @@ For that reason, there are multiple tools that help you to gather logs and have 
 By tracing requests, you can easily see where bottlenecks are, but with logging, you can debug them and provide insights on how to resolve bugs, improve the product performance, and so on.
 
 
-## My recommended observability tools.
+## 3 - My recommended observability tools.
 
 Let's get to the practice. Here's a list of my favorite observability tools and a short description of them.
 

@@ -1,7 +1,7 @@
 ---
 title: "Tekton CI/CD: my own best practices"
 date: "2020-05-28T14:25:00.000Z"
-description: "A couple of months ago, I started looking into a relatively new project called ['Tekton'](https://tekton.dev). Tekton is a Kubernetes native CI/CD solution. I find it revolutionary, and far from the typical industry standards. However, it comes with common issues that early-stage projects often have."
+description: "A couple of months ago, I started looking into a relatively new project called Tekton. As soon as I started to implement Tekton, I've realized how far (in a positive way) is from the typical industry standards. Being a Kubernetes native CI/CD solution makes it just revolutionary."
 ---
 
 !['tekton-logo'](./tekton-logo.png)
@@ -149,4 +149,4 @@ After the initial fatigue, though, you will be comfortable, and hopefully, you w
 
 I'm going to write a small series of articles about Tekton. The next one is going to be: "Pipelines metrics and monitoring with Tekton & Prometheus".
 
-Stay tuned!
+Stay tuned, and if you have any questions ask on Twitter!

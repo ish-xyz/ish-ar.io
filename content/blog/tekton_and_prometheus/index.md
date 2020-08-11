@@ -1,31 +1,37 @@
+---
+title: 'CI/CD Observability: Tekton CI/CD + Prometheus'
+date: "2020-08-11T18:00:00.000Z"
+description: "Today's article is about some experiments I've been doing with Tekton CI/CD + Prometheus..."
+---
 
+![prometheus-tekton-logo](./logo.jpg)
 
 Hello dear readers,
 
-Today's article is about some experiments I've been doing with Tekton CI/CD + Promethues.
+Today's article is about some experiments I've been doing with Tekton CI/CD + Prometheus.
 
 But first, let's understand "why".
 
 ## Why is it important to collect metrics about your CI/CD pipelines?
 
-CI/CD is becoming more and more a hot topic, everyone wants a 100% automated, flawless, fast, code integration and deployments. 
-But, how can a team/company achieve that?
+CI/CD is becoming more and more a hot topic. Everyone wants a 100% automated, flawless, fast, code integration, and deployments. 
+But how can a team/company achieve that?
 
+Usually is a step-by-step process and not a ready-to-install solution (if there's one though, please tell me ;) ).
 
-Usually is a step by step process and not a ready-to-install solution (if there's one: please tell me :D ).
+For that reason, metrics will help you keep track of your CI/CD improvements and understand what needs to be adjusted.
 
-For that reason, metrics will help you to keep track of your CI/CD improvements and understand what needs to be improved and what doesn't.
+Luckily, if you are using Tekton, there's going to be some useful metrics by default.
 
-Luckly, if you're using Tekton, you're going to have some useful metrics by default.
+I couldn't find enough documentation on the metrics exposed out of the box by Tekton. After a few experiments, I came up with a list of what (in my opinion) are the most valuable metrics.
 
-I couldn't find enough documentation on the metrics that Tekton exposes, but after few experiments I came up with a short list of what (in my opinion) are the most valuable metrics.
-The demo I've prepared is using Prometheus as backend to collect and display metrics, albeit others backends are availbles too. #todo -> "add link to list"
+The demo I've prepared uses Prometheus as a backend to collect and display metrics, albeit others backends (such as StackDriver/Cloud Monitoring) are available too. 
 
-## Tekton Useful metrics
+## Tekton CI/CD: Useful Indicators
 
 | metric      | description                                                                     |
 |-------------|---------------------------------------------------------------------------------|
-| tekton_go_* | This metrics are all about the GO status: memory used, allocated, GC, and more. |
+| tekton_go_* | These metrics are all about the GO status: memory used, allocated, GC, and more. |
 | tekton_running_{taskruns or pipelineruns}_count|  How many taskruns or pipelineruns are in status "running" |
 | tekton_pipelinerun_count | Simple PipelineRuns counter |
 | tekton_taskrun_count | Simple TaskRuns counter |
@@ -47,13 +53,13 @@ rate(tekton_pipelinerun_duration_seconds_sum{pipelinerun="xxx"}[5m]) / rate(tekt
 ```
 
 **Check PipelineRuns failures**
-*If more than 15% of the PipelineRuns are failing this rule will applied*
+*If more than 15% of the PipelineRuns are failing this rule will apply*
 ```
 tekton_pipelinerun_count{status="failed"} * 100 / ignoring(status) tekton_pipelinerun_count{status="success"} > 15
 ```
 
 **Check TaskRuns failures**
-*If more than 15% of the TaskRuns are failing this rule will applied*
+*If more than 15% of the TaskRuns are failing this rule will apply*
 ```
 tekton_taskrun_count{status="failed"} * 100 / ignoring(status) tekton_taskrun_count{status="success"} > 15
 ```
@@ -71,22 +77,22 @@ tekton_workqueue_depth
 **Workqueue depth**: *It’s the number of actions waiting in the queue to be performed. It should remain in low values.*
 
 
-These are very basic examples and there are other cool stuff that you can do with these indicators. You could, for example, monitor how many pods/resources have been allocated into a project, how much time users are wasting in retries, how many seconds are wasted on latency, pods latency, Workqueues and so on!
+These are very basic examples, and there's other cool stuff that you can do with these indicators. You could, for example, monitor how many pods/resources have been allocated into a project, how much time users are wasting in retries, how many seconds are wasted on latency, pods latency, Workqueues and so on!
 
-Meausuring pipelines is, in my opinion, something that every company who wants to move towards a data-driven mindset should do.
+Measuring pipelines is, in my opinion, something that every company who wants to move towards a data-driven mindset should do.
 
 
 
 ### How to setup Tekton to use Prometheus
 
-As stated before Tekton comes with Prometheus as default backend, what you need to do is to ensure that you have the metrics enabled on your Tekton installation.
+As stated before, Tekton comes with Prometheus as default backend. The user just needs to ensure that metrics are enabled on the Tekton configuration.
 
-If you look into the namespace where Tekton is installed you should have a configmap called "observability" or "tekton...-observability", inside that config there's the configuration that will then used by Knative/Tekton Controller to expose metrics.
+Inside the namespace where the Tekton Pipeline Controller is installed, there is a configmap called "observability" or "tekton...-observability". Inside that configmap, there's the configuration that will then be used by Knative/Tekton Controller to expose metrics.
 
-The configuration should look like:
+The observability configuration is explained here:
 https://github.com/tektoncd/pipeline/blob/edc453934a183d44fde739dc24d6ca6b25cdeb6b/config/config-observability.yaml
 
-Once you've configured Tekton you just need to create the related Service Monitor configuration to allow the Prometheus Operator to scrape those metrics :) 
+Once Tekton is configured, the only bit missing is the related Service Monitor to allow the Prometheus Operator to scrape the exposed metrics!
 
 The service monitor configuration should look like:
 
@@ -117,7 +123,7 @@ spec:
     interval: 15s
 ```
 
-That's all for today! Hope you enjoyed today's article :)
+That's all from me, hope you enjoyed today's article :)
 
 Cheers!
 

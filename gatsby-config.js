@@ -9,6 +9,13 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-material-ui`,
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+          endpoint: 'https://ish-ar.us17.list-manage.com/subscribe/post?u=363a9a5f69a20b7c20ddb38f9&amp;id=e685688362', 
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

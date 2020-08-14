@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
+import MailChimpForm from "../components/mailchimp"
 
 import "./layout.css"
 
@@ -41,6 +42,7 @@ class Layout extends React.Component {
           > 
               Observability, Linux Internals, Devops and more... 
           </h2>
+          <MailChimpForm></MailChimpForm>
         </span>
       )
     } else {

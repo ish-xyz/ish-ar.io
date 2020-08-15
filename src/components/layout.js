@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import { rhythm, scale } from "../utils/typography"
 import MailChimpForm from "../components/mailchimp"
-
 import "./layout.css"
 
 class Layout extends React.Component {
@@ -42,28 +41,31 @@ class Layout extends React.Component {
           > 
               Observability, Linux Internals, Devops and more... 
           </h2>
-          <MailChimpForm></MailChimpForm>
         </span>
       )
     } else {
       header = (
-        <h4
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
-          <Link
+        <span>
+            <h4
             style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
+              fontFamily: `Montserrat, sans-serif`,
+              marginTop: 0,
+              marginBottom: rhythm(0.2),
             }}
-            to={`/`}
           >
-            {title}
-          </Link>
-        </h4>
+            <Link
+              style={{
+                boxShadow: `none`,
+                textDecoration: `none`,
+                color: `inherit`,
+              }}
+              to={`/`}
+            >
+              {title}
+            </Link>
+          </h4>
+          <MailChimpForm></MailChimpForm>
+        </span>
       )
     }
     return (

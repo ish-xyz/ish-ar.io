@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import MailChimpForm from "../components/mailchimp"
 import { rhythm } from "../utils/typography"
 
 class BlogIndex extends React.Component {
@@ -16,6 +17,7 @@ class BlogIndex extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="A blog about Linux, Observability and Devops" />
         <Bio />
+        <MailChimpForm></MailChimpForm>
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (

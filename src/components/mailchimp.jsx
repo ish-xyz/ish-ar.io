@@ -3,6 +3,7 @@ import TextField from "@material-ui/core/TextField"
 import Button from "@material-ui/core/Button"
 import { Typography } from "@material-ui/core"
 import React from "react"
+import "./mailchimp.css"
 
 export default class MailChimpForm extends React.Component {
   constructor() {
@@ -20,12 +21,14 @@ export default class MailChimpForm extends React.Component {
   }
   render() {
     return this.state.result === "success" ? (
-      <div id="form-success">{this.state.msg}</div>
+      <div class="form-success"><span>Thank you for subscribing! You will soon receive a confirmation email :)</span></div>
     ) : this.state.result === "error" ? (
-      <div id="form-error">ERROR</div>
+      <div class="form-error"><span>Error: SUBSCRIPTION FAILED (please if you are already subscribed ignore this error)</span></div>
     ) : (
-      <div id="form-mc">
+      <div class="form-mc">
+      <span class="mc-call-action">SUBSCRIBE to the newsletter and get all the latest news!</span>
       <form onSubmit={this._handleSubmit}>
+
         <TextField
           id="outlined-email-input"
           label="Email Address"

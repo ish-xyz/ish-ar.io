@@ -1,0 +1,44 @@
+.form-error {
+    color: #ff6333;
+    margin-bottom: 2em;
+}
+
+.form-success {
+    color: #118a3a;
+    margin-bottom: 2em;
+}
+
+.mc-call-action {
+    color: #007acc;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.5em; 
+}
+
+/*Overwrite core/material-ui*/
+
+.MuiButton-containedPrimary {
+    background-color: #007acc !important;
+}
+
+.MuiTypography-button {
+    line-height: 1.4 !important;
+}
+
+.MuiFormLabel-root {
+    line-height: 0 !important;
+}
+
+.MuiInputBase-input {
+    height: 32px !important;
+}
+
+.MuiOutlinedInput-input {
+    padding: 0 0.4em !important;
+}
+
+.MuiFormControl-root {
+    margin-right: 1em !important;
+    margin-bottom: 2.5em !important;
+    width: 350px !important;
+}

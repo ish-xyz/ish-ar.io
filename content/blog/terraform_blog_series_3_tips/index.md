@@ -14,7 +14,7 @@ However, this design will soon show its downsides and limits.
 
 **Why is a mono state file, not a good idea in terms of performance?**
 
-One of the reason is that during the 'terraform plan' command there's an action called "refresh". This step means that Terraform is about to "reconcile the state Terraform knows about (via its state file) with the real-world infrastructure."
+One of the reason is that during the 'terraform plan' command there's an action called "refresh". This step means that Terraform is about to "reconcile the state Terraform knows about (via its state file) with the real-world infrastructure."<br>
 If there's a big state file with the whole infrastructure mapped and a person wants to change just a single GKE cluster, remove a single EC2 instance or create a new bucket.<br/>
 Guess what? **It will require the refresh on the whole infrastructure** (and trust me, it will take a while!)
 

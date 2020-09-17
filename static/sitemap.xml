@@ -9,67 +9,72 @@
 
 <url>
   <loc>https://ish-ar.io/</loc>
-  <lastmod>2020-05-31T15:42:37+00:00</lastmod>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://ish-ar.io/terraform_blog_series_3_tips/</loc>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://ish-ar.io/tekton_and_prometheus/</loc>
-  <lastmod>2020-08-11T18:00:00+00:00</lastmod>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ish-ar.io/tekton_best_practices/</loc>
-  <lastmod>2020-05-31T15:42:37+00:00</lastmod>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ish-ar.io/cka_10_tips_tricks/</loc>
-  <lastmod>2020-05-31T15:42:37+00:00</lastmod>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ish-ar.io/python_ebpf_tracing/</loc>
-  <lastmod>2020-05-31T15:42:37+00:00</lastmod>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ish-ar.io/sre_book_notes_slo_error_budget/</loc>
-  <lastmod>2020-05-31T15:42:37+00:00</lastmod>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ish-ar.io/observability/</loc>
-  <lastmod>2020-05-31T15:42:37+00:00</lastmod>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ish-ar.io/kubernetes_bootstrap_library/</loc>
-  <lastmod>2020-05-31T15:42:37+00:00</lastmod>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ish-ar.io/prometheus_alert_rules_unit_testing/</loc>
-  <lastmod>2020-05-31T15:42:37+00:00</lastmod>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ish-ar.io/actionable_alerts_on_it_infrastructures/</loc>
-  <lastmod>2020-05-31T15:42:37+00:00</lastmod>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ish-ar.io/kprobes_in_a_nutshell/</loc>
-  <lastmod>2020-05-31T15:42:37+00:00</lastmod>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ish-ar.io/ebpf_dive_into_the_verifier/</loc>
-  <lastmod>2020-05-31T15:42:37+00:00</lastmod>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://ish-ar.io/ebpf_my_first_2_days_with_it/</loc>
-  <lastmod>2020-05-31T15:42:37+00:00</lastmod>
+  <lastmod>2020-09-17T15:46:17+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 

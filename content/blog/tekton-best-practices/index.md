@@ -2,6 +2,8 @@
 title: "Tekton: a Kubernetes Native CI/CD Solution and my own Best Practices."
 date: "2020-05-28T14:25:00.000Z"
 description: "A couple of months ago, I started looking into a relatively new project called Tekton. As soon as I started to implement Tekton, I've realized how far (in a positive way) is from the typical industry standards. Being a Kubernetes native CI/CD solution makes it just revolutionary."
+redirect_from:
+  - /tekton_best_practices/
 ---
 
 !['tekton-logo'](./tekton-logo.png)

@@ -2,6 +2,8 @@
 title: 'Auto-diagnosis and actionable alerts on IT infrastructures'
 date: "2019-09-25T20:13:00.000Z"
 description: "I got back from holiday 2 weeks ago, and while I was lying on the beach, I enjoyed reading Brendan Gregg's book 'System Performance: Enterprise and the Cloud'. First, let me say that this book is awesome, it has been in my 'to read' list for a long time, and now I'm so happy to have it between my hands..."
+redirect_from:
+  - /actionable_alerts_on_it_infrastructures/
 ---
 
 ## Introduction

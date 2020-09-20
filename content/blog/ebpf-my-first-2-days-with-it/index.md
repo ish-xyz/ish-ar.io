@@ -2,6 +2,8 @@
 title: 'eBPF: My first 2 days with it.'
 date: "2019-07-27T22:25:00.000Z"
 description: "In the last two months I have noticed a lot of posts, tweets and articles talking about eBPF, I was annoyed by that 'hype', because I didn't know absolutely anything about it.So, I googled it, and it turned out it was BPF (yes the Berkeley Packet Filter) with an 'e' as first letter :(. At the time I decided to not get involved, since it was 'just a packet filter' and nothing else. But..."
+redirect_from:
+  - /ebpf_my_first_2_days_with_it/
 ---
 ## How I ended up studying eBPF!?
 !['ebpf_logo'](./ebpf_logo.png)

@@ -1,8 +1,9 @@
 ---
 title: 'Notes from the SRE book: SLOs & Error Budget'
 date: "2020-02-10T17:39:00.000Z"
-description: "I have finally managed to read the SRE book. It has been in my 'book to read' list since forever, and I'm happy that I finally have a little bit of time to read it.
-It is such a good feeling to see things I've been doing day after day for years written and explained in a book with beautiful suggestions and inspirations."
+description: "I have finally managed to read the SRE book. It has been in my 'book to read' list since forever, and I'm happy that I finally have a little bit of time to read it. It is such a good feeling to see things I've been doing day after day for years written and explained in a book with beautiful suggestions and inspirations."
+redirect_from:
+  - /sre_book_notes_slo_error_budget/
 ---
 
 !['sre'](./sre.png)

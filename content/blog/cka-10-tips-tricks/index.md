@@ -2,8 +2,6 @@
 title: 'CKA: 10 Tips & Tricks.'
 date: "2020-04-30T18:01:00.000Z"
 description: "So, today's article is not going to be a 'how-to', or some deep-dive article, but just a list of few tips & tricks that helped me to pass the exam, and hopefully will be useful to you as well."
-redirect_from:
-  - /cka_10_tips_tricks/
 ---
 Hello, dear reader!
 In the last three weeks, I have been busy preparing for the CKA exam (Certified Kubernetes Administrator), and I'm happy to say that I've passed it.

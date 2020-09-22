@@ -2,8 +2,6 @@
 title: 'Terraform Blog Series: These 3 tips will save you from terrible mistakes'
 date: "2020-09-16T22:00:00.000Z"
 description: "A big single state file is not going to help you. When a new user starts with Terraform, it could seem easier to manage all the infrastructure code under one big repository ..."
-redirect_from:
-  - /terraform_blog_series_3_tips/
 ---
 
 ![terraform-icon](./terraform-icon.png)

@@ -3,8 +3,6 @@ title: 'eBPF: Dive into the verifier!'
 date: "2019-08-02T18:00:00.000Z"
 description: "If you have already read my previous article, you probably know what the verifier is. Anyway let's make a short recap.
 eBPF allows you to execute a program (BPF bytecode) directly inside the kernel through an in-kernel VM. Since the code comes from the user space, and as users we do a lot of mistakes (believe me), the code needs to be checked before the execution...."
-redirect_from:
-  - /ebpf_dive_into_the_verifier/
 ---
 NOTE: *If you don't know what eBPF is you should check out my [previous post](https://ish-ar.io/eBPF_my_first_2_days_with_it/)*
 

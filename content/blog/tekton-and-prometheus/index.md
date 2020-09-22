@@ -2,8 +2,6 @@
 title: 'CI/CD Observability: Tekton + Prometheus'
 date: "2020-08-11T18:00:00.000Z"
 description: "Today's article is about some experiments I've been doing with Tekton CI/CD + Prometheus..."
-redirect_from:
-  - /tekton_and_prometheus/
 ---
 
 ![prometheus-tekton-logo](./logo.jpg)

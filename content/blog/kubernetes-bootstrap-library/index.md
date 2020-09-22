@@ -3,8 +3,6 @@ title: 'Yet Another Boring Kubernetes Automation Tool'
 date: "2019-12-30T13:05:00.000Z"
 description: "Today, I am going to tell you what I've been working on during the last month. I'm still doing it, but with much less effort right now.
 And the project is ...** drumroll ** **Another Boring Kubernetes Bootstrap tool** !."
-redirect_from:
-  - /kubernetes_bootstrap_library/
 ---
 
 Today, I am going to tell you what I've been working on during the last month. I'm still doing it, but with much less effort right now.

@@ -2,8 +2,6 @@
 title: 'How to trace a Python application with eBPF/BCC'
 date: "2020-03-12T18:00:00.000Z"
 description: "A couple of weeks ago, a friend of mine, who is developing a Python application that performs data transformation, wanted a way to know at what step of the data pipeline, a particular task/process is..."
-redirect_from:
-  - /python_ebpf_tracing/
 ---
 
 ![python-tracing](./python-tracing.png)

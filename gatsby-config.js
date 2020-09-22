@@ -10,8 +10,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-material-ui`,
-    `gatsby-redirect-from`,
-    `gatsby-plugin-meta-redirect`,
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {

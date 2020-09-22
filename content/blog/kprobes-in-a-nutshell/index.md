@@ -2,8 +2,6 @@
 title: 'KPROBES in a nutshell'
 date: "2019-08-24T14:25:00.000Z"
 description: "Kprobes enables you to dynamically break into any kernel routine and collect debugging and performance information non-disruptively. You can trap at almost any kernel code address [1]_, specifying a handler routine to be invoked when the breakpoint is hit..."
-redirect_from:
-  - /kprobes_in_a_nutshell/
 ---
 ## What Kprobes is?
 

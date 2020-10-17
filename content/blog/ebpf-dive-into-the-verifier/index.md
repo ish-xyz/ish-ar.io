@@ -32,7 +32,8 @@ Different parts of the program can branch forward to the same point, though. So 
 
 Also, your program must be compliant with the following:
 
-- You cannot use loops and call other functions, except for the BPF helpers and functions defined as __always_inline.
+- ~~You cannot use loops and call other functions, except for the BPF helpers and functions defined as __always_inline.~~
+   UPDATE: According to the latest updates, bounded loops are now allowed (see: https://lwn.net/Articles/794934/).
 
 - Your program can't be larger then BPF_MAXINSNS instructions, according to the macro in [bpf_common.h](https://elixir.bootlin.com/linux/latest/source/include/uapi/linux/bpf_common.h) the limit for the Linux Kernel is 4096.
 

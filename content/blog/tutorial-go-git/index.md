@@ -151,7 +151,7 @@ go run main.go
     <nil>
     A  my-new-file.txt
     <nil>
-    Remote updated. my-new-ififif.txt
+    Remote updated. my-new-file.txt
 ```
 
 I know this is quite a specific topic, but I hope this tutorial will help someone!

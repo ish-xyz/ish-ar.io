@@ -267,11 +267,11 @@ You need a **Linux machine**!
 	
 	```
 
+**NOTE: the code for this tutorial can be found here ->** [kprobes-demo](https://github.com/ish-xyz/ish-ar.io-tutorials/tree/master/tutorial-kprobes)
 
 ---
 
-**RECAP:**
 
 **What we've learned?**
 
-**How to use Kprobes using kernel modules, what are the pre_handler and post_handler and how to use them to count every time a function is called (e.g.: sys_execve)**
+*How to use Kprobes using kernel modules, what are the pre_handler and post_handler and how to use them to count every time a function is called (e.g.: sys_execve)*

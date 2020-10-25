@@ -56,10 +56,10 @@ To do that, I have prepared a simple terraform configuration.
 
 So let's download the terraform code I've prepared:
 
-    git clone https://github.com/ish-xyz/bcc-python3-profiler-demo
+    git clone https://github.com/ish-xyz/ish-ar.io-tutorials
+    cd ./ish-ar.io-tutorials/tutorial-bcc-python3-profiler
 
-
-Inside the repository, you will find the following structure:
+Inside the folder `tutorial-bcc-python3-profiler`, you will find the following structure:
 
     .
     ├── app

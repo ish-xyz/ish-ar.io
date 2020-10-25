@@ -68,7 +68,7 @@ Following a graphic representation of the current implementation:
 On the Github public repository below, there's the code.
 As per license, feel free to use or adapt it.
 
-https://github.com/ish-xyz/kubernetes-on-aws
+https://github.com/ish-xyz/tomahawk
 
 
 ## What have I learned so far?

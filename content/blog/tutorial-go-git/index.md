@@ -140,7 +140,7 @@ Our final main.go would look like this: https://github.com/ish-xyz/ish-ar.io-tut
 
 ## Install and run our module
 
-Let's try our new go module.
+Let's try our new go module. Run the following commands:
 
 ```
 go mod init

@@ -135,7 +135,8 @@ The Push() will be performed using the method of the Repository interface as sho
 }
 ```
 
-Our final main.go would look like this: https://github.com/ish-ar.io-tutorials/tutorial-go-git/main.go
+Our final main.go would look like this: https://github.com/ish-xyz/ish-ar.io-tutorials/blob/master/tutorial-go-git/main.go
+
 
 ## Install and run our module
 

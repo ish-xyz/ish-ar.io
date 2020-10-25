@@ -1,16 +1,16 @@
 ---
-title: 'In-memory Git clone, commit and push with GO'
+title: 'In-memory Git clone, commit and push using GO'
 date: "2020-10-25T22:00:00.000Z"
 description: "Today's article is a tutorial on how set up and use the go-git library to clone and update a repository with an in-memory filesystem.
 This procedure is quite useful if you want to push against or clone a repository without touching the OS filesystem and deal with permissions or temporary files..."
 ---
 
-## Introduction and requirements
+## Tutorial introduction and requirements
 
-Today's article is a tutorial on how set up and use the go-git library to clone and update a repository with an in-memory filesystem.
-This procedure is quite useful if you want to push against or clone a repository without touching the OS filesystem and deal with permissions or temporary files.
-Albeit, there's documentation about git-go, I find it not really clear and sometimes misleading due to the different versions and names of the library.
-For this reason, I've decided to share this tutorial, and hopefully will be helpful to someone.
+Today's article is a tutorial on how set up and use the go-git library to clone and update a repository with an in-memory filesystem.<br>
+This procedure is quite useful if you want to push against or clone a repository without touching the OS filesystem and deal with permissions or temporary files.<br>
+Albeit, there's documentation about git-go, I find it not really clear and sometimes misleading due to the different versions and names of the library.<br>
+For this reason, I've decided to share this tutorial, and hopefully will be helpful to someone.<br>
 For the purpose of this tutorial, we will do everything inside a main.go file, however you might want something more sofisticated for your use case :)
 
 **Requirements**:
@@ -22,9 +22,8 @@ For the purpose of this tutorial, we will do everything inside a main.go file, h
 ## Setting up the In-Memory Filesystem
 
 To set up the in-memory filesystem, we will use two packages storage and memfs.
-The storer will contain the objects, references and other metadata (normally what the directory `.git` would do).
-The memfs filesystem will be our filesystem to read, create, remove any kind of file in our repository.
-
+The storer will contain the objects, references and other metadata (normally what the directory `.git` would do).<br>
+The memfs filesystem will be our filesystem to read, create, remove any kind of file in our repository.<br>
 First step, we need to create the two objects (the storer and the filesystem).
 
 ```
@@ -52,10 +51,10 @@ func main() {
 
 ## Setting up Git objects and Clone the repo
 
-**Second step**: in order to have our repository in the in-memory filesystem, we need to **clone** it and create the **worktree** object.
-The function `Clone()` will also return the Repository interface that we will then use to `Push()` to the remote.
-The method `Worktree()` will return the Worktree object that we will need to `Add()` & `Commit()` our changes.
-Finally, if our repository is private, we would need to set up the basic authentication to clone it.
+Second step, in order to have our repository in the in-memory filesystem, we need to **clone** it and create the **worktree** object.<br>
+The function `Clone()` will also return the Repository interface that we will then use to `Push()` to the remote.<br>
+The method `Worktree()` will return the Worktree object that we will need to `Add()` & `Commit()` our changes.<br>
+Finally, if our repository is private, we would need to set up the basic authentication to clone it (We need the basic authentication to push anyway so better to set up it here!).
 ```
 ...
 
@@ -86,9 +85,11 @@ Finally, if our repository is private, we would need to set up the basic authent
 ## Create and commit your files
 
 Now, will we use the `fs` object to create an actual file, add & commit it to the Worktree().
-**NOTE**: 
+
+**NOTE**:
+
  - By default, the repository is always cloned into `"/"`. 
- - For some reason (unknown to me), if the filename starts with "/...name" it will create a directory and not a file.
+ - For some reason (unknown to me), if the filename starts with "/" it will create a folder and not a file.<br>E.g.: /hello/world.txt (world.txt would be a directory) hello/world.txt (world.txt would be a file inside the folder hello)
 
 ```
 ...
@@ -115,10 +116,9 @@ Now, will we use the `fs` object to create an actual file, add & commit it to th
         w.Commit("Added my new file", &git.CommitOptions{})
 ```
 
-## Install the go module and run the main.go
+## Push and check errors
 
-To authenticate, we will use Https Basic Auth with the package `github.com/go-git/go-git/v5/plumbing/transport/http` (use version >= 5).
-The Push() will be performed using the method of the Repository interface.
+The Push() will be performed using the method of the Repository interface as shown below.
 ```
 ...
 

@@ -45,7 +45,7 @@ The setup of these two parts of the infrastructure can be very standard or compl
 
 Let's talk about the tools I've used on the [Jenkins at scale demo]("https://github.com/ish-xyz/jenkins-aws-platform") I've created.
 
-(**LITTLE DISCLAIMER**: I'm aware there are plenty of examples on how to automate the Jenkins setup on Kubernetes, however I felt like there wasn't a real "use-case" on how to do it with AWS instances)<br>
+(**LITTLE DISCLAIMER**: I'm aware there are plenty of examples on how to automate the Jenkins setup on Kubernetes, however I felt like there wasn't a real "use-case" on how to do it with AWS instances)<br><br>
 
 
 **AMIs CREATION**
@@ -57,7 +57,7 @@ To create the AMIs I've decided to use Packer + Ansible. The way Packer works is
 
 1. Packer will create a temporary EC2 Instance from a source AMI (defined in a file called [packer.json](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/images/master/packer.json#L4))
 2. It will then connect to the instance (via ssh) and run ansible
-3. Then Packer will save the configured instance as a new AMI, and output some metadata to a file called [manifest.json](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/images/agents/default/manifest.json)<br>
+3. Then Packer will save the configured instance as a new AMI, and output some metadata to a file called [manifest.json](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/images/agents/default/manifest.json)<br><br>
 
 
 **JENKINS MASTER AND JOBS PROVISIONING/CONFIGURATION**
@@ -78,7 +78,7 @@ How does it do that? **Using the DSL plugin**. (If you don't know what the plugi
 
 The seed job will download the repository with the infrastructure code and provision the files within the folder `/jenkins-jobs`, by doing this wwe can have all our Jenkins jobs defined as code.
 
-To have an idea of what the seed job looks like, check out the [CASC configuration](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/terraform/templates/jenkins-casc.yaml.tpl#L84).<br>
+To have an idea of what the seed job looks like, check out the [CASC configuration](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/terraform/templates/jenkins-casc.yaml.tpl#L84).<br><br>
 
 
 **DEPLOYMENT**
@@ -107,7 +107,7 @@ To be specific, Terraform will perform the following actions:<br>
 
 - Provision the required Security Groups.
 
-- Create the EC2 Instance to host the Jenkins Master and deploy the rendered jenkins.yaml (CASC file) inside it.<br>
+- Create the EC2 Instance to host the Jenkins Master and deploy the rendered jenkins.yaml (CASC file) inside it.<br><br>
 
 
 **AGENTS PROVISIONING**
@@ -134,8 +134,14 @@ https://github.com/ish-xyz/jenkins-aws-platform/blob/1
 
 ## CONCLUSIONS
 
--Review demo
--pros/cons
--Checkout README conclusions
--Etc
+**~PROS &~ CONS**:
+
+I'm not going to list the PROS because at this point they should be clear enough :)
+
+*CONS:*
+
+- If your team is not familiar with IAC and it only wants a simple Jenkins setup, maybe to run a simple POC, then it's probably better to just set it up manually. Although, probably it's just better to have a managed solution at this point.
+
+
+Finally, make sure to check out the demo section ["Consideration"](https://github.com/ish-xyz/jenkins-aws-platform/tree/1#considerations).
 

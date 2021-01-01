@@ -123,7 +123,7 @@ The clouds configuration only needs few information and it can be configured via
 
 **TUTORIAL:** If you want to provision the infrastructure describe in this article, follow the tutorial [here](https://github.com/ish-xyz/jenkins-aws-platform/tree/1#tutorial).
 
-**CONS**:
+**PROS & CONS**:
 
 I'm not going to list the *PROS* because at this point they should be clear enough :)
 

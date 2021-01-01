@@ -1,7 +1,7 @@
 ---
 title: 'Jenkins at scale'
 date: "2020-12-30T16:46:00.000Z"
-description: "...."
+description: "This article presents a solution to run a CI/CD Jenkins based platform at scale ..."
 ---
 
 ## INTRODUCTION
@@ -9,7 +9,7 @@ description: "...."
 This article presents a solution to run a CI/CD Jenkins based platform at scale.<br>
 To run Jenkins at scale, automation is vital. More important, automation should help you and not make your life harder.<br>
 When it comes to Jenkins, automate the whole setup could be painful; often, engineers create hacky solutions or follow manual steps to get it "up & running".<br>
-Obviously, we want to avoid these scenarios as much as possible.<br><br>
+Obviously, we want to avoid these scenarios as much as possible.<br>
 
 ## PRINCIPLES
 
@@ -25,7 +25,7 @@ Requirements:
 - Engineers should be comfortable to break things, knowing that they can always rollback/re-provision the whole stack.
 - The CI/CD platform must export metrics about itself, and engineers should use those metrics to make decisions about it.
 
-Now, all of these aspects might seem very high-level, and in fact, they are, but it's good to start with a clear idea of what we want and then design "how to execute it".<br><br>
+Now, all of these aspects might seem very high-level, and in fact, they are, but it's good to start with a clear idea of what we want and then design "how to execute it".<br>
 
 
 ## DESIGN
@@ -39,26 +39,25 @@ I've tried to follow the above requirements as much as possible, albeit a some o
 Let's talk first about the Jenkins high-level components. We can say that Jenkins has 2 major kinds of components: Master and Agents.<br>
 The **agents** (also called build machines) are responsible for running our pipelines.<br>
 The **Jenkins Master** instead is responsible for: orchestration, user management, authentication, authorization, plugins management, and a lot of other things.<br>
-The setup of these two parts of the infrastructure can be very standard or complicated. However, what I'm going to present to you today will give you the building blocks to automate an entire Jenkins setup and allow you to run it at scale, no matter how tricky the setup can be.<br><br>
-
+The setup of these two parts of the infrastructure can be very standard or complicated. However, what I'm going to present to you today will give you the building blocks to automate an entire Jenkins setup and allow you to run it at scale, no matter how tricky the setup can be.<br>
 
 ### IMPLEMENTATION
 
 Let's talk about the tools I've used on the [Jenkins at scale demo]("https://github.com/ish-xyz/jenkins-aws-platform") I've created.
 
-(**LITTLE DISCLAIMER**: I'm aware there are plenty of examples on how to automate the Jenkins setup on Kubernetes, however I felt like there wasn't a real "use-case" on how to do it with AWS instances)
+(**LITTLE DISCLAIMER**: I'm aware there are plenty of examples on how to automate the Jenkins setup on Kubernetes, however I felt like there wasn't a real "use-case" on how to do it with AWS instances)<br>
 
 
-**PACKER + ANSIBLE**
+**AMIs CREATION**
 
 The approach used here is "immutable infrastructure". To put it simply, we're going to create AMIs with software pre-installed in them and deploy them, instead of provisioning an EC2 Instance and then configure it afterward.<br>
-Using an immutable infrastructure will help us with consistency, and deploy time (on top of a lot of other advantages that I'm not going to discuss today).<br><br>
+Using an immutable infrastructure will help us with consistency, and deploy time (on top of a lot of other advantages that I'm not going to discuss today).<br>
 
 To create the AMIs I've decided to use Packer + Ansible. The way Packer works is the follow:
 
 1. Packer will create a temporary EC2 Instance from a source AMI (defined in a file called [packer.json](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/images/master/packer.json#L4))
 2. It will then connect to the instance (via ssh) and run ansible
-3. Then Packer will save the configured instance as a new AMI, and output some metadata to a file called [manifest.json](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/images/agents/default/manifest.json)
+3. Then Packer will save the configured instance as a new AMI, and output some metadata to a file called [manifest.json](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/images/agents/default/manifest.json)<br>
 
 
 **JENKINS MASTER AND JOBS PROVISIONING/CONFIGURATION**
@@ -77,12 +76,16 @@ Now, this last part is very important for me, because what I've used to create j
 
 How does it do that? **Using the DSL plugin**. (If you don't know what the plugin is, you should really read this article -> https://plugins.jenkins.io/job-dsl/)<br>
 
+The seed job will download the repository with the infrastructure code and provision the files within the folder `/jenkins-jobs`, by doing this wwe can have all our Jenkins jobs defined as code.
+
+To have an idea of what the seed job looks like, check out the [CASC configuration](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/terraform/templates/jenkins-casc.yaml.tpl#L84).<br>
+
 
 **DEPLOYMENT**
 
 We now have a Jenkins AMI, a YAML file that will configure our Jenkins Master, a seed job that will create our pipelines for us, but how do we deploy all of this?<br>
 
-On this [demo](https://github.com/ish-xyz/jenkins-aws-platform/blob/1), I've used [Terraform](https://terraform.io), because I believe it's the best option to do IAC at the moment.<br>
+On this [demo](https://github.com/ish-xyz/jenkins-aws-platform/tree/1), I've used [Terraform](https://terraform.io), because I believe it's the best option to do IAC at the moment.<br>
 
 Via Terraform we're are going to deploy the whole infrastructure + CASC file.<br>
 
@@ -98,35 +101,41 @@ To be specific, Terraform will perform the following actions:<br>
   (**NOTE: Using the Jenkins AWS Credential plugin the agents SSH key will be automatically be created as credentials within Jenkins**)<br>
 
 - Render and upload the CASC file (`/terraform/templates/jenkins.yaml.tpl`).<br>
-  **NOTE:** <br>
-  Jenkins using CASC will create a credential called "jenkins-agent-key-pair" which is needed by Jenkins Clouds to provision Agents automatically.<br>
+  **NOTE:** Jenkins using CASC will create a credential called "jenkins-agent-key-pair" which is needed by Jenkins Clouds to provision Agents automatically.<br>
   The content of the actual key is stored in AWS Secret Manager by Terraform itself and is accesible by Jenkins using the configured IAM role.<br>
   However since the name of the secret, in AWS Secret Manager, changes at every Terraform run, I needed to template the CASC configuration, making the value of ${jenkins-agent-key-pair} dynamic.<br>
 
 - Provision the required Security Groups.
 
-- Create the EC2 Instance to host the Jenkins Master and deploy the rendered jenkins.yaml (CASC file) inside it.
+- Create the EC2 Instance to host the Jenkins Master and deploy the rendered jenkins.yaml (CASC file) inside it.<br>
 
 
 **AGENTS PROVISIONING**
 
-I didn't talk a lot about Jenkins agents, the reason is because we can handle them with little effort.<br>
+Jenkins agents can be handled with little effort.<br>
 
-Agents should be disposable, they should be something you create when you need to run your pipeline and then discard.<br>
+The image creations for agents is done with the same identical set of tools and logic of the Jenkins master image.<br>
 
-For this reason, there's a Jenkins functionality called "Clouds".<br>
+Agents should be disposable, they should be something you create when you need and then discard.<br>
 
-Clouds will allow you to create, manage and destroy agents via Jenkins.<br>
+To use Jenkins agents this way there's a Jenkins functionality called "Clouds".<br>
 
-The clouds configuration only needs few information<br>
+Clouds will allow you to create, manage and destroy agents. Jenkins will then spawn agents only when it needs them.<br>
+
+The clouds configuration only needs few information and it can be configured via CASC. To have you an idea of CASC configuration required,  checkout this configuration [sample](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/terraform/locals.tf#L3)<br>
 
 
-## DEMO TUTORIAL
+## STEP-BY-STEP TUTORIAL
 
-To deploy the demo described here, follow the tutorial in the README.md file:
+If you want to provision the infrastructure describe in this article, follow the tutorial [here](https://github.com/ish-xyz/jenkins-aws-platform/tree/1#tutorial).
 
 https://github.com/ish-xyz/jenkins-aws-platform/blob/1
 
 
-## Conclusions
+## CONCLUSIONS
+
+-Review demo
+-pros/cons
+-Checkout README conclusions
+-Etc
 

@@ -119,14 +119,9 @@ Clouds will allow you to create, manage and destroy agents. Jenkins will then sp
 The clouds configuration only needs few information and it can be configured via CASC. To have you an idea of CASC configuration required,  checkout this configuration [sample](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/terraform/locals.tf#L3)<br>
 
 
-## STEP-BY-STEP TUTORIAL
-
-If you want to provision the infrastructure describe in this article, follow the tutorial [here](https://github.com/ish-xyz/jenkins-aws-platform/tree/1#tutorial).
-
-https://github.com/ish-xyz/jenkins-aws-platform/blob/1
-
-
 ## CONCLUSIONS
+
+**TUTORIAL:** If you want to provision the infrastructure describe in this article, follow the tutorial [here](https://github.com/ish-xyz/jenkins-aws-platform/tree/1#tutorial).
 
 **CONS**:
 

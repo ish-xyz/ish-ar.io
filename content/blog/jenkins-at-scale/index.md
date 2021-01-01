@@ -1,7 +1,7 @@
 ---
 title: 'Jenkins at scale'
 date: "2020-12-30T16:46:00.000Z"
-description: "This article presents a solution to run a CI/CD Jenkins based platform at scale. To run Jenkins at scale, automation is vital..."
+description: "This article presents a solution to run a CI/CD Jenkins based platform at scale. To run Jenkins at scale, automation is vital. More important, automation should help you and not make your life harder. When it comes to Jenkins ..."
 ---
 
 !['jenkins-logo'](./jenkins-logo.png)
@@ -30,13 +30,13 @@ Requirements:
 Now, all of these aspects might seem very high-level, and in fact, they are, but it's good to start with a clear idea of what we want and then design "how to execute it".<br>
 
 
-## DESIGN
+## DEMO
 
-For this article, I have created a little [demo]("https://github.com/ish-xyz/jenkins-aws-platform") on how Jenkins can be provisioned automatically on AWS and managed at scale, and in this section, I'm going to talk about the decisions taken and tools implemented in it.<br>
+For this article, I have created a little [demo](https://github.com/ish-xyz/jenkins-aws-platform) on how Jenkins can be provisioned automatically on AWS and managed at scale, and in this section, I'm going to talk about the decisions taken and tools implemented in it.<br>
 Although the demo doesn't represent a production-ready platform is a good start and it shows some good Jenkins features, and best practices.<br>
 I've tried to follow the above requirements as much as possible, albeit a some of them haven't been satisfied in the demo.<br>
 
-### COMPONENTS
+### JENKINS COMPONENTS
 
 Let's talk first about the Jenkins high-level components. We can say that Jenkins has 2 major kinds of components: Master and Agents.<br>
 The **agents** (also called build machines) are responsible for running our pipelines.<br>
@@ -45,7 +45,7 @@ The setup of these two parts of the infrastructure can be very standard or compl
 
 ### IMPLEMENTATION
 
-Let's talk about the tools I've used on the [Jenkins at scale demo]("https://github.com/ish-xyz/jenkins-aws-platform") I've created.
+Let's talk about the tools I've used on the [Jenkins at scale demo](https://github.com/ish-xyz/jenkins-aws-platform) I've created.
 
 (**LITTLE DISCLAIMER**: I'm aware there are plenty of examples on how to automate the Jenkins setup on Kubernetes, however I felt like there wasn't a real "use-case" on how to do it with AWS instances)<br><br>
 

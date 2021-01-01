@@ -32,9 +32,10 @@ Now, all of these aspects might seem very high-level, and in fact, they are, but
 
 ## DEMO
 
-For this article, I have created a little [demo](https://github.com/ish-xyz/jenkins-aws-platform) on how Jenkins can be provisioned automatically on AWS and managed at scale, and in this section, I'm going to talk about the decisions taken and tools implemented in it.<br>
+For this article, I have created a little [demo](https://github.com/ish-xyz/jenkins-aws-platform) on how Jenkins can be provisioned automatically on AWS and managed at scale.
+In this section, I'm going to talk about the decisions taken and the tools implemented in it.<br>
 Although the demo doesn’t represent a production-ready platform is a good start, and it shows useful good Jenkins features and best practices.<br>
-I've tried to follow the above requirements as much as possible, albeit some of them haven't been implemented in the demo.<br>
+While developing the demo, I have followed the requirements listed above, however, I didn't implement a part of them.<br>
 
 ### JENKINS COMPONENTS
 
@@ -51,13 +52,13 @@ Let's talk about the tools I've used on the [Jenkins at scale demo](https://gith
 
 **AMIs CREATION**
 
-The approach used here is "immutable infrastructure". To put it simply, we're going to create AMIs with software pre-installed in them and deploy them, instead of provisioning an EC2 Instance and then configure it afterward.<br>
+The approach used here is "immutable infrastructure". To put it simply, we're going to create AMIs with software pre-installed in them and deploy them, instead of provisioning an EC2 instance and then configure it afterward.<br>
 Using an immutable infrastructure will help us with consistency and deploy time (on top of many other advantages that I’m not going to discuss today).<br>
 
 To create the AMIs, I've decided to use Packer + Ansible. Packer works as follow:
 
-1. Packer will create a temporary EC2 Instance from a source AMI (defined in a file called [packer.json](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/images/master/packer.json#L4))
-2. It will then connect to the instance (via ssh) and run ansible
+1. Packer will create a temporary EC2 instance from a source AMI (defined in a file called [packer.json](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/images/master/packer.json#L4))
+2. It will then connect to the instance (via ssh) and run Ansible
 3. Then Packer will save the configured instance as a new AMI and output some metadata to a file called [manifest.json](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/images/agents/default/manifest.json)<br><br>
 
 
@@ -96,7 +97,7 @@ To be specific, Terraform will perform the following actions:<br>
 
 - Create the PEM Keys (With RSA Algorithm) <- These are the keys used for the master & agent SSH connections.<br>
 
-- Save the early created keys to AWS Secret Manager<br>
+- Save the early created keys to AWS Secret Manager.<br>
   (**NOTE: Using the Jenkins AWS Credential plugin, the agents' SSH key will be automatically be created as credentials within Jenkins**)<br>
 
 - Render and upload the CASC file (`/terraform/templates/jenkins.yaml.tpl`).<br>
@@ -112,8 +113,8 @@ To be specific, Terraform will perform the following actions:<br>
 **AGENTS PROVISIONING**
 
 Jenkins agents can be handled with little effort.<br>
-The image creations for agents is done with the same identical set of tools and logic of the Jenkins master image.<br>
-Agents should be disposable; they should be something you create when you need them and then discard.The Jenkins "Clouds" functionality does precisely that.<br>
+The image creations for agents is done with the same identical set of tools and logic as the Jenkins master image.<br>
+Agents should be disposable; they should be something you create when you need them and then discard. The Jenkins "Clouds" functionality does precisely that.<br>
 Clouds will allow you to create, manage, and destroy agents. Jenkins will then spawn agents only when it needs them.<br>
 The Clouds configuration only needs only a few parameters, and it can be configured via CASC. To give you an idea of the CASC configuration required, check out this [sample](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/terraform/locals.tf#L3).<br>
 

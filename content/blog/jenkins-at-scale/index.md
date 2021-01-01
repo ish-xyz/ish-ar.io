@@ -1,8 +1,10 @@
 ---
 title: 'Jenkins at scale'
 date: "2020-12-30T16:46:00.000Z"
-description: "This article presents a solution to run a CI/CD Jenkins based platform at scale ..."
+description: "This article presents a solution to run a CI/CD Jenkins based platform at scale. To run Jenkins at scale, automation is vital..."
 ---
+
+!['jenkins-logo'](./jenkins-logo.png)
 
 ## INTRODUCTION
 
@@ -47,7 +49,6 @@ Let's talk about the tools I've used on the [Jenkins at scale demo]("https://git
 
 (**LITTLE DISCLAIMER**: I'm aware there are plenty of examples on how to automate the Jenkins setup on Kubernetes, however I felt like there wasn't a real "use-case" on how to do it with AWS instances)<br><br>
 
-
 **AMIs CREATION**
 
 The approach used here is "immutable infrastructure". To put it simply, we're going to create AMIs with software pre-installed in them and deploy them, instead of provisioning an EC2 Instance and then configure it afterward.<br>
@@ -84,9 +85,7 @@ To have an idea of what the seed job looks like, check out the [CASC configurati
 **DEPLOYMENT**
 
 We now have a Jenkins AMI, a YAML file that will configure our Jenkins Master, a seed job that will create our pipelines for us, but how do we deploy all of this?<br>
-
 On this [demo](https://github.com/ish-xyz/jenkins-aws-platform/tree/1), I've used [Terraform](https://terraform.io), because I believe it's the best option to do IAC at the moment.<br>
-
 Via Terraform we're are going to deploy the whole infrastructure + CASC file.<br>
 
 *The reason why we deploy the CASC file via Terraform and not Packer is because it needs information that are only available at provisioning-time.*<br>
@@ -113,15 +112,10 @@ To be specific, Terraform will perform the following actions:<br>
 **AGENTS PROVISIONING**
 
 Jenkins agents can be handled with little effort.<br>
-
 The image creations for agents is done with the same identical set of tools and logic of the Jenkins master image.<br>
-
 Agents should be disposable, they should be something you create when you need and then discard.<br>
-
 To use Jenkins agents this way there's a Jenkins functionality called "Clouds".<br>
-
 Clouds will allow you to create, manage and destroy agents. Jenkins will then spawn agents only when it needs them.<br>
-
 The clouds configuration only needs few information and it can be configured via CASC. To have you an idea of CASC configuration required,  checkout this configuration [sample](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/terraform/locals.tf#L3)<br>
 
 
@@ -134,12 +128,11 @@ https://github.com/ish-xyz/jenkins-aws-platform/blob/1
 
 ## CONCLUSIONS
 
-**~PROS &~ CONS**:
+**CONS**:
 
-I'm not going to list the PROS because at this point they should be clear enough :)
+I'm not going to list the *PROS* because at this point they should be clear enough :)
 
 *CONS:*
-
 - If your team is not familiar with IAC and it only wants a simple Jenkins setup, maybe to run a simple POC, then it's probably better to just set it up manually. Although, probably it's just better to have a managed solution at this point.
 
 

@@ -33,7 +33,7 @@ Now, all of these aspects might seem very high-level, and in fact, they are, but
 ## DEMO
 
 For this article, I have created a little [demo](https://github.com/ish-xyz/jenkins-aws-platform) on how Jenkins can be provisioned automatically on AWS and managed at scale.
-In this section, I'm going to talk about the decisions taken and the tools implemented in it.<br>
+In this section, I will talk about the decisions taken and the tools implemented in it.<br>
 Although the demo doesn’t represent a production-ready platform is a good start, and it shows useful good Jenkins features and best practices.<br>
 While developing the demo, I have followed the requirements listed above, albeit I didn’t implement all of them.<br>
 
@@ -76,7 +76,7 @@ Through this YAML file, you will be able also to configure plugins settings and 
 
 Now, this last part is crucial for me because what I've used to create jobs automatically in Jenkins is a **seed job**. A seed job is a particular pipeline that all it does, is to create other Jenkins jobs for us.<br>
 
-How does it do that? **Using the DSL plugin**. (If you don't know what the plugin is, you should really read this article -> https://plugins.jenkins.io/job-dsl/)<br>
+How does it do that? **Using the DSL plugin**. (If you don't know what the plugin is, you should read this article -> https://plugins.jenkins.io/job-dsl/)<br>
 
 The seed job will download the repository with the infrastructure code and provision the files within the folder `/jenkins-jobs`; by doing this, we can have all our Jenkins jobs defined as code.
 
@@ -128,7 +128,7 @@ The Clouds configuration only needs only a few parameters, and it can be configu
 I'm not going to list the *PROS* because, at this point, they should be clear enough :)
 
 *CONS:*
-- If your team is not familiar with IAC and it only wants a simple Jenkins setup, maybe to run a simple POC, then it's probably better to just set it up manually. Although, probably it's better to have a managed solution at this point.
+- If your team is not familiar with IAC and  only wants a simple Jenkins setup, maybe to run a simple POC, it’s probably better to just set it up manually. Although, probably it’s better to have a managed solution at this point.
 
 
 Finally, make sure to check out the demo section ["Consideration"](https://github.com/ish-xyz/jenkins-aws-platform/tree/1#considerations).

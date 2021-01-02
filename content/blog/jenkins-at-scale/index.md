@@ -35,7 +35,7 @@ Now, all of these aspects might seem very high-level, and in fact, they are, but
 For this article, I have created a little [demo](https://github.com/ish-xyz/jenkins-aws-platform) on how Jenkins can be provisioned automatically on AWS and managed at scale.
 In this section, I'm going to talk about the decisions taken and the tools implemented in it.<br>
 Although the demo doesn’t represent a production-ready platform is a good start, and it shows useful good Jenkins features and best practices.<br>
-While developing the demo, I have followed the requirements listed above, however, I didn't implement a part of them.<br>
+While developing the demo, I have followed the requirements listed above, albeit I didn’t implement all of them.<br>
 
 ### JENKINS COMPONENTS
 

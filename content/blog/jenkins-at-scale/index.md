@@ -1,6 +1,6 @@
 ---
 title: 'Jenkins at scale'
-date: "2020-12-30T16:46:00.000Z"
+date: "2021-01-16T13:46:00.000Z"
 description: "This article presents a solution to run a CI/CD Jenkins based platform at scale. To run Jenkins at scale, automation is vital. More important, automation should help you and not make your life harder. When it comes to Jenkins ..."
 ---
 

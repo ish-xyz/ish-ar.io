@@ -32,9 +32,9 @@ Now, all of these aspects might seem very high-level, and in fact, they are, but
 
 ## DEMO
 
-For this article, I have created a little [demo](https://github.com/ish-xyz/jenkins-aws-platform) on how Jenkins can be provisioned automatically on AWS and managed at scale.
-In this section, I will talk about the decisions taken and the tools implemented in it.<br>
-Although the demo doesn’t represent a production-ready platform is a good start, and it shows useful good Jenkins features and best practices.<br>
+For this article, I created a little [demo](https://github.com/ish-xyz/jenkins-aws-platform) that illustrate how Jenkins can be provisioned automatically on AWS and managed at scale.
+In this section, I will talk about the decisions taken and the tools implemented in the demo.<br>
+Although the demo doesn't represent a production-ready platform, it is a good starting point, and it shows useful good Jenkins features and best practices.<br>
 While developing the demo, I have followed the requirements listed above, albeit I didn’t implement all of them.<br>
 
 ### JENKINS COMPONENTS
@@ -52,7 +52,7 @@ Let's talk about the tools I've used on the [Jenkins at scale demo](https://gith
 
 **AMIs CREATION**
 
-The approach used here is "immutable infrastructure". To put it simply, we're going to create AMIs with software pre-installed in them and deploy them, instead of provisioning an EC2 instance and then configure it afterward.<br>
+The approach used here is "immutable infrastructure." To put it simply, we're going to create AMIs with software pre-installed in them and deploy, instead of provisioning EC2 instances and configure them afterward.<br>
 Using an immutable infrastructure will help us with consistency and deploy time (on top of many other advantages that I’m not going to discuss today).<br>
 
 To create the AMIs, I've decided to use Packer + Ansible. Packer works as follow:
@@ -72,9 +72,9 @@ Simple answer: **using Jenkins CASC!**<br>
 
 Jenkins CASC (Configuration as Code) is a plugin that will let you configure the whole Jenkins Master from a [YAML file](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/terraform/templates/jenkins-casc.yaml.tpl).<br>
 
-Through this YAML file, you will be able also to configure plugins settings and create **jobs**.<br>
+Through this YAML file, you will be able also to configure plugins settings and **create jobs**.<br>
 
-Now, this last part is crucial for me because what I've used to create jobs automatically in Jenkins is a **seed job**. A seed job is a particular pipeline that all it does, is to create other Jenkins jobs for us.<br>
+Now, this last part is crucial for me. To create Jenkins Jobs automatically I've used a **seed job**. A seed job is a particular pipeline, defined in the CASC configuration, that creates other Jenkins jobs for us.<br>
 
 How does it do that? **Using the DSL plugin**. (If you don't know what the plugin is, you should read this article -> https://plugins.jenkins.io/job-dsl/)<br>
 
@@ -128,7 +128,7 @@ The Clouds configuration only needs only a few parameters, and it can be configu
 I'm not going to list the *PROS* because, at this point, they should be clear enough :)
 
 *CONS:*
-- If your team is not familiar with IAC and  only wants a simple Jenkins setup, maybe to run a simple POC, it’s probably better to just set it up manually. Although, probably it’s better to have a managed solution at this point.
+- If your team is not familiar with IAC and  only wants a simple Jenkins setup, maybe to run a simple POC, it’s probably better to just set it up manually. Although , at this point, a managed solution would be a better option.
 
 
 Finally, make sure to check out the demo section ["Consideration"](https://github.com/ish-xyz/jenkins-aws-platform/tree/1#considerations).

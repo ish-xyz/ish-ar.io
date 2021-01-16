@@ -32,7 +32,7 @@ Now, all of these aspects might seem very high-level, and in fact, they are, but
 
 ## DEMO
 
-For this article, I created a little [demo](https://github.com/ish-xyz/jenkins-aws-platform) that illustrate how Jenkins can be provisioned automatically on AWS and managed at scale.
+For this article, I created a little [demo](https://github.com/ish-xyz/jenkins-aws-platform) that illustrates how Jenkins can be provisioned automatically on AWS and managed at scale.
 In this section, I will talk about the decisions taken and the tools implemented in the demo.<br>
 Although the demo doesn't represent a production-ready platform, it is a good starting point, and it shows useful good Jenkins features and best practices.<br>
 While developing the demo, I have followed the requirements listed above, albeit I didn’t implement all of them.<br>
@@ -59,7 +59,7 @@ To create the AMIs, I've decided to use Packer + Ansible. Packer works as follow
 
 1. Packer will create a temporary EC2 instance from a source AMI (defined in a file called [packer.json](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/images/master/packer.json#L4))
 2. It will then connect to the instance (via ssh) and run Ansible
-3. Then Packer will save the configured instance as a new AMI and output some metadata to a file called [manifest.json](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/images/agents/default/manifest.json)<br><br>
+3. Then Packer will save the configured instance as a new AMI and output some metadata to a file called [manifest.json.](https://github.com/ish-xyz/jenkins-aws-platform/blob/1/images/agents/default/manifest.json)<br><br>
 
 
 **JENKINS MASTER AND JOBS PROVISIONING/CONFIGURATION**
@@ -105,7 +105,7 @@ To be specific, Terraform will perform the following actions:<br>
   The content of the actual key is stored in AWS Secret Manager by Terraform itself and is accessible by Jenkins using the configured IAM role.<br>
   However, since the name of the secret in AWS Secret Manager changes at every Terraform run, I needed to template the CASC configuration, making the value of ${jenkins-agent-key-pair} dynamic.<br>
 
-- Provision the required Security Groups.
+- Provision of the required Security Groups.
 
 - Create the EC2 Instance to host the Jenkins Master and deploy the rendered jenkins.yaml (CASC file) inside it.<br><br>
 
@@ -128,7 +128,7 @@ The Clouds configuration only needs only a few parameters, and it can be configu
 I'm not going to list the *PROS* because, at this point, they should be clear enough :)
 
 *CONS:*
-- If your team is not familiar with IAC and  only wants a simple Jenkins setup, maybe to run a simple POC, it’s probably better to just set it up manually. Although , at this point, a managed solution would be a better option.
+- If your team is not familiar with IAC and  only wants a simple Jenkins setup, maybe to run a simple POC, it’s probably better to just set it up manually. Although, at this point, a managed solution would be a better option.
 
 
 Finally, make sure to check out the demo section ["Consideration"](https://github.com/ish-xyz/jenkins-aws-platform/tree/1#considerations).

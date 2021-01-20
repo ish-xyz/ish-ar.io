@@ -8,9 +8,9 @@ description: "This article presents a solution to run a CI/CD Jenkins based plat
 
 ## INTRODUCTION
 
-This article presents a solution to run a CI/CD Jenkins based platform at scale.<br>
+This article presents a solution to run a CI/CD platform based on Jenkins at scale.<br>
 To deploy and manage Jenkins at scale, automation is vital. More important, automation should help you and not make your life harder.<br>
-When it comes to Jenkins, automate the whole setup could be painful; often, engineers create hacky solutions or follow manual steps to get it "up & running".<br>
+When it comes to Jenkins, automate the whole setup could be painful; often, engineers create complex solutions, workarounds or follow manual steps to set it up.<br>
 Obviously, we want to avoid these scenarios as much as possible.<br>
 
 ## PRINCIPLES
@@ -35,16 +35,16 @@ Now, all of these aspects might seem very high-level, and in fact, they are, but
 For this article, I created a little [demo](https://github.com/ish-xyz/jenkins-aws-platform) that illustrates how Jenkins can be provisioned automatically on AWS and managed at scale.
 In this section, I will talk about the decisions taken and the tools implemented in the demo.<br>
 Although the demo doesn't represent a production-ready platform, it is a good starting point, and it shows useful good Jenkins features and best practices.<br>
-While developing the demo, I have followed the requirements listed above, albeit I didn’t implement all of them.<br>
+While developing the demo, I have followed the requirements listed above, albeit I didn’t implement all of them, security, automated tests and observability are not implemented.<br>
 
 ### JENKINS COMPONENTS
 
 Let's talk first about the Jenkins high-level components. We can say that Jenkins has two major kinds of components: Master and Agents.<br>
 The **agents** (also called build machines) are responsible for running our pipelines.<br>
 The **Jenkins Master** instead is responsible for: orchestration, user management, authentication, authorization, plugins management, and a lot of other things.<br>
-The setup of these two parts of the infrastructure can be very standard or complicated. However, what I'm going to present to you today will give you the building blocks to automate an entire Jenkins setup and allow you to run it at scale, no matter how tricky the setup can be.<br>
+The setup of these two parts of the infrastructure can be very standard or complicated. However, what I'm going to present today will give you the building blocks to automate an entire Jenkins setup and allow you to run it at scale, no matter how tricky the setup can be.<br>
 
-### IMPLEMENTATION
+**IMPLEMENTATION**
 
 Let's talk about the tools I've used on the [Jenkins at scale demo](https://github.com/ish-xyz/jenkins-aws-platform) I've created.
 

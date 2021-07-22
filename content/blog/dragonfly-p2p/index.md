@@ -1,6 +1,6 @@
 ---
 title: "Dragonfly P2P to distribute images at scale on Kubernetes"
-date: "2020-04-30T18:01:00.000Z"
+date: "2021-07-15T18:01:00.000Z"
 description: "This article explains how I implemented Dragonfly on Kubernetes, a general overview of what it is and the advantages/disadvantages that I have found along the way."
 ---
 
